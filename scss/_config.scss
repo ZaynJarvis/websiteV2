@@ -10,7 +10,7 @@ $primary-color: rgb(215, 218, 214);
 $secondary-color: set-text-color($primary-color);
 $highlight-color: #88585a;
 $show-home-image: true;
-$home-image: url("../assets/img/background.jpg");
+$home-image: url("/assets/img/background.jpg");
 $background-opacity: 0.9;
 
 $middle-size: 300px;
@@ -24,7 +24,7 @@ $small-size: 200px;
 }
 
 @mixin ease {
-  transition: all 0.8s ease-out;
+  transition: all 0.5s ease-out;
 }
 @mixin background {
   @if $show-home-image {
@@ -35,7 +35,7 @@ $small-size: 200px;
     }
     &::after {
       content: "";
-      position: absolute;
+      position: fixed;
       top: 0;
       right: 0;
       width: 100vw;
@@ -72,4 +72,14 @@ $small-size: 200px;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+.portrait {
+  width: $middle-size;
+  height: $middle-size;
+  background: url("/assets/img/portrait.webp");
+  background-size: $middle-size;
+  background-position: center;
+  border-radius: 50%;
+  border: solid 3px $highlight-color;
 }

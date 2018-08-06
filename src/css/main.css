@@ -3,15 +3,24 @@
   margin: 0;
   padding: 0; }
 
+.portrait {
+  width: 300px;
+  height: 300px;
+  background: url("/assets/img/portrait.webp");
+  background-size: 300px;
+  background-position: center;
+  border-radius: 50%;
+  border: solid 3px #88585a; }
+
 .menu-btn {
   position: absolute;
   z-index: 3;
   right: 2rem;
   top: 2rem;
   cursor: pointer;
-  transition: all 0.8s ease-out; }
+  transition: all 0.5s ease-out; }
   .menu-btn .btn-line {
-    transition: all 0.8s ease-out;
+    transition: all 0.5s ease-out;
     width: 28px;
     height: 3px;
     margin: 0 0 5px 0;
@@ -51,41 +60,34 @@
     list-style: none;
     transform: translate3d(50%, -100%, 0);
     border-radius: 0 0 0 100px;
-    transition: all 0.8s ease-out; }
+    transition: all 0.5s ease-out; }
     .menu-nav.show {
       border-radius: 0;
       transform: translate3d(0, 0, 0); }
   .menu-branding {
     top: 100vh;
-    background: rgba(223, 225, 222, 0.9);
+    background: rgba(223, 225, 222, 0.95);
     list-style: none;
     transform: translate3d(-50%, 100%, 0);
     border-radius: 0 100px 0 0;
-    transition: all 0.8s ease-out; }
+    transition: all 0.5s ease-out; }
     .menu-branding.show {
       border-radius: 0;
       transform: translate3d(0, 0, 0); }
-    .menu-branding .portrait {
-      width: 300px;
-      height: 300px;
-      background: url("../assets/img/portrait.webp");
-      background-size: 300px;
-      background-position: center;
-      border-radius: 50%;
-      border: solid 3px #88585a; }
   .menu .nav-item {
     transform: translate3d(600px, 0, 0);
-    transition: all 0.8s ease-out; }
+    transition: all 0.5s ease-out; }
     .menu .nav-item.show {
       transform: translate3d(0, 0, 0); }
-    .menu .nav-item a.nav-link {
+    .menu .nav-item .nav-link {
+      cursor: pointer;
       display: inline-block;
       position: relative;
       font-size: 2rem;
       padding: 1rem 0;
       text-transform: uppercase;
-      transition: all 0.8s ease-out; }
-      .menu .nav-item a.nav-link:hover, .menu .nav-item a.nav-link.current {
+      transition: all 0.5s ease-out; }
+      .menu .nav-item .nav-link:hover, .menu .nav-item .nav-link.current {
         color: #88585a; }
 
 .nav-item:nth-child(1) {
@@ -116,8 +118,7 @@
     height: 60vh;
     transform: translate3d(100%, 0, 0); }
   div.menu-branding {
-    height: 40vh;
-    transform: translate3d(-100%, 0, 0); }
+    height: 40vh; }
     div.menu-branding .portrait {
       background-size: 200px;
       width: 200px;
@@ -136,12 +137,12 @@ body {
   font-family: "Fira Sans", Tahoma;
   line-height: 1.5; }
   body#bg-img {
-    background: url("../assets/img/background.jpg");
+    background: url("/assets/img/background.jpg");
     background-attachment: fixed;
     background-size: cover; }
   body::after {
     content: "";
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     width: 100vw;
@@ -178,7 +179,7 @@ header {
   color: #88585a; }
 
 main {
-  padding: 8rem;
+  padding: 4rem 8rem;
   height: 100%; }
   main .icon {
     display: flex;
@@ -191,14 +192,49 @@ main {
     background: transparent;
     border-radius: 5px;
     margin-right: 1rem;
-    transition: all 0.8s ease-out; }
+    transition: all 0.5s ease-out; }
     main .icon i {
-      transition: all 0.8s ease-out; }
+      transition: all 0.5s ease-out; }
     main .icon:hover {
       background: rgba(34, 34, 34, 0.5); }
       main .icon:hover i {
         color: #d7dad6; }
-  main #home {
-    overflow: hidden; }
-    main #home h1 {
-      margin-top: 20vh; }
+  main #home h1,
+  main #contact h1 {
+    margin-top: 20vh; }
+  main .content h1 {
+    margin-bottom: 3rem; }
+
+.selected {
+  color: #88585a; }
+
+.about-info {
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  grid-gap: 2rem; }
+  .about-info .intro {
+    padding: 1rem;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 350px; }
+    .about-info .intro .portrait {
+      margin-bottom: 2rem; }
+    .about-info .intro h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px; }
+
+.projects {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 2rem;
+  overflow: hidden; }
+  .projects .project {
+    padding: 2rem;
+    margin: 0.5rem;
+    border-radius: 10px;
+    background: #cacec9; }
+    .projects .project h3 {
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+      color: #88585a; }

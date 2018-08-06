@@ -79,7 +79,7 @@ $delete-color: rgb(201, 94, 94);
   }
   &-branding {
     top: 100vh;
-    background: lighten(rgba($primary-color, 0.9), 3);
+    background: lighten(rgba($primary-color, 0.95), 3);
     list-style: none;
     transform: translate3d(-50%, 100%, 0);
     border-radius: 0 100px 0 0;
@@ -87,15 +87,6 @@ $delete-color: rgb(201, 94, 94);
     &.show {
       border-radius: 0;
       transform: translate3d(0, 0, 0);
-    }
-    .portrait {
-      width: $middle-size;
-      height: $middle-size;
-      background: url("../assets/img/portrait.webp");
-      background-size: $middle-size;
-      background-position: center;
-      border-radius: 50%;
-      border: solid 3px $highlight-color;
     }
   }
   .nav-item {

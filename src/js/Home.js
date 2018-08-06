@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Home extends Component {
   render() {
     return (
-      <div id="home">
+      <div id="home" className="content">
         <h1 className="lg-heading">
           Zhiheng&nbsp;
           <span className="text-highlight">Liu</span>
