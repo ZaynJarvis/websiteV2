@@ -1,0 +1,75 @@
+@function set-text-color($color) {
+  @if (lightness($color) > 50) {
+    @return #222;
+  } @else {
+    @return #fff;
+  }
+}
+
+$primary-color: rgb(215, 218, 214);
+$secondary-color: set-text-color($primary-color);
+$highlight-color: #88585a;
+$show-home-image: true;
+$home-image: url("../assets/img/background.jpg");
+$background-opacity: 0.9;
+
+$middle-size: 300px;
+$small-size: 200px;
+
+@mixin hover-color($color) {
+  &:hover {
+    @include ease;
+    color: $color;
+  }
+}
+
+@mixin ease {
+  transition: all 0.8s ease-out;
+}
+@mixin background {
+  @if $show-home-image {
+    &#bg-img {
+      background: $home-image;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      background-color: $primary-color;
+      opacity: $background-opacity;
+    }
+  }
+}
+
+@mixin mediaSm {
+  @media screen and (max-width: 500px) {
+    @content;
+  }
+}
+@mixin mediaMd {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin mediaLg {
+  @media screen and (min-width: 769px) and (max-width: 1170px) {
+    @content;
+  }
+}
+@mixin mediaXL {
+  @media screen and (min-width: 1171px) {
+    @content;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
