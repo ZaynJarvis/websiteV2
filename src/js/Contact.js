@@ -5,7 +5,6 @@ class Contact extends Component {
     return (
       <div id="home">
         <h1 className="lg-heading">Contact</h1>
-        <h2 className="sm-heading">About</h2>
       </div>
     );
   }

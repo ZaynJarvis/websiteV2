@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./css/main.css";
 import Home from "./js/Home";
 import About from "./js/About";
-import Portfolio from "./js/Portfolio";
+import Project from "./js/Project";
 import Contact from "./js/Contact";
 import registerServiceWorker from "./registerServiceWorker";
 
@@ -56,10 +56,10 @@ function Greeting(props) {
   console.log(router);
   if (router === "home" || "") return <Home />;
   else if (router === "about") return <About />;
-  else if (router === "portfolio") return <Portfolio />;
+  else if (router === "project") return <Project />;
   else if (router === "contact") return <Contact />;
 }
 
-ReactDOM.render(<Home />, main);
+ReactDOM.render(<Greeting router={main.attributes.router.value} />, main);
 
 registerServiceWorker();
