@@ -1,21 +1,55 @@
 // Wide Screen
 @include mediaXL {
+  .about-info {
+    grid-gap: 2rem;
+    grid-template-columns: 2fr 5fr;
+  }
+  .projects {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .lg-heading {
+    font-size: 6rem;
+  }
 }
 
 // Laptop
 @include mediaLg {
+  html {
+    font-size: 14px;
+  }
+  main {
+    padding: 2rem;
+  }
+  .about-info {
+    grid-template-columns: 1fr 3fr;
+    align-content: center;
+    grid-gap: 3rem;
+  }
+  .projects {
+    margin-top: 20px;
+    grid-template-columns: 1fr;
+  }
+  .lg-heading {
+    font-size: 5rem;
+  }
 }
 
 // Tablet
 @include mediaMd {
+  html {
+    font-size: 13px;
+  }
   main {
-    padding: 4rem;
     align-items: center;
     text-align: center;
-    .lg-heading {
-      line-height: 1;
-      margin-bottom: 1rem;
-    }
+  }
+  .about-info {
+    grid-template-columns: 1fr;
+    align-content: center;
+  }
+  .projects {
+    margin-top: 20px;
+    grid-template-columns: 1fr;
   }
 
   ul.menu-nav,
@@ -29,21 +63,32 @@
   }
   div.menu-branding {
     height: 40vh;
-    // transform: translate3d(-100%, 0, 0);
-    .portrait {
-      background-size: $small-size;
-      width: $small-size;
-      height: $small-size;
-    }
+    transform: translate3d(-100%, 0, 0);
+  }
+  .portrait {
+    background-size: $small-size;
+    width: $small-size;
+    height: $small-size;
+  }
+  .lg-heading {
+    font-size: 4rem;
   }
 }
 
 //Smart phone
 @include mediaSm {
   html {
-    font-size: 13px;
+    font-size: 10px;
   }
+
+  main {
+    padding: 1rem;
+  }
+
   main#home h1 {
     margin-top: 20vh;
+  }
+  .lg-heading {
+    font-size: 4rem;
   }
 }
