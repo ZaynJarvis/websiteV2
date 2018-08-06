@@ -8,7 +8,7 @@ class About extends Component {
           About&nbsp;
           <span className="text-highlight">Me</span>
         </h1>
-        <h2 className="sm-heading">loremasdhouweajdioajefioaewjfioaejwdfoia</h2>
+        <h2 className="sm-heading">About</h2>
       </div>
     );
   }

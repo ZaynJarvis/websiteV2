@@ -56,6 +56,8 @@ function Greeting(props) {
   console.log(router);
   if (router === "home" || "") return <Home />;
   else if (router === "about") return <About />;
+  else if (router === "portfolio") return <Portfolio />;
+  else if (router === "contact") return <Contact />;
 }
 
 ReactDOM.render(<Home />, main);
