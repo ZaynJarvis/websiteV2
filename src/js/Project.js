@@ -10,7 +10,7 @@ class Project extends Component {
         </h1>
 
         <div className="projects">
-          <div className="project">
+          <div className="project project-text">
             <h3>Front-End Development</h3>
             <span className="icon">
               <a
@@ -29,7 +29,7 @@ class Project extends Component {
               trying to add more user interactions.
             </p>
           </div>
-          <div className="project">
+          <div className="project project-text">
             <h3>Back-End Development</h3>
             <span className="icon">
               <a
@@ -46,7 +46,7 @@ class Project extends Component {
               Docker, Kubernetes, and Firebase.
             </p>
           </div>
-          <div className="project">
+          <div className="project project-text">
             <h3>Telegram Chatbot Project</h3>
             <span className="icon">
               <a
@@ -64,7 +64,7 @@ class Project extends Component {
               Github repo includes the complete source code and documentation
             </p>
           </div>
-          <div className="project">
+          <div className="project project-text">
             <h3>Processing &amp; p5.js</h3>
             <p>
               I started learning Processing by watching Mr. Shiffman’s youtube
@@ -73,13 +73,21 @@ class Project extends Component {
               interaction.
             </p>
           </div>
-          <div className="project">
+          <div className="project project-text">
             <h3>Internet &amp; Training</h3>
             <p>
               I bought a domain name, SSL certificate and created my server on
               DigitalOcean, and learned Linux command line, Git, Github, ssh,
               VPN, and became the software trainer of Garage@EEE and NTUOSS.
             </p>
+          </div>
+          <div className="project project-video">
+            <iframe
+              src="https://www.youtube.com/embed/pzRyTLj1wko"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen="true"
+            />
           </div>
         </div>
       </div>
