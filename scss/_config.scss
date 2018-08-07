@@ -92,4 +92,5 @@ $small-size: 200px;
   background-position: center;
   border-radius: 50%;
   border: solid 3px $highlight-color;
+  box-shadow: 0px 0px 100px darken($primary-color, 30);
 }
