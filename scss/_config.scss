@@ -83,7 +83,9 @@ $small-size: 200px;
   margin: 0;
   padding: 0;
 }
-
+.dead {
+  display: none;
+}
 .portrait {
   width: $middle-size;
   height: $middle-size;

@@ -7,6 +7,9 @@ import Project from "./js/Project";
 import Contact from "./js/Contact";
 import registerServiceWorker from "./registerServiceWorker";
 
+// temporart solution
+const loader = document.querySelector(".loader");
+
 const main = document.querySelector("#main");
 const menuBtn = document.querySelector(".menu-btn");
 const menu = document.querySelector(".menu");
@@ -62,5 +65,7 @@ function Greeting(props) {
 // typeform.
 
 ReactDOM.render(<Greeting router={main.attributes.router.value} />, main);
-
+setTimeout(() => {
+  loader.classList.add("dead");
+}, 500);
 registerServiceWorker();
