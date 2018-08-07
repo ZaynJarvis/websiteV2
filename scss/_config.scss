@@ -23,8 +23,8 @@ $highlight-color: set-highlight-color($primary-color, $highlight-color-base);
 $show-home-image: true;
 $home-image: url("/assets/img/background.jpg");
 
-$middle-size: 300px;
-$small-size: 200px;
+$middle-size: 18rem;
+$small-size: 15rem;
 @mixin overlay($left, $width, $height, $opacity) {
   content: "";
   position: fixed;
@@ -52,16 +52,30 @@ $small-size: 200px;
     &#bg-img {
       background: $home-image;
       background-attachment: fixed;
-      background-size: cover;
+      background-size: 120vh;
+      background-position: right;
     }
+  }
+}
+@mixin mediaXS {
+  // @media screen and (max-width: 321px) {
+  @media screen and (max-width: 321px) and (orientation: portrait) {
+    @content;
   }
 }
 
 @mixin mediaSm {
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 500px) and (orientation: portrait) {
     @content;
   }
 }
+
+@mixin mediaSmSp {
+  @media screen and (max-height: 420px) {
+    @content;
+  }
+}
+
 @mixin mediaMd {
   @media screen and (max-width: 768px) {
     @content;

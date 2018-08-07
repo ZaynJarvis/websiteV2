@@ -1,6 +1,23 @@
 import React, { Component } from "react";
 import * as typeformEmbed from "@typeform/embed";
 class Contact extends Component {
+  constructor(prop) {
+    super(prop);
+    this.typeFormPopup = this.typeFormPopup.bind(this);
+    // const typeFormReference;
+    this.typeFormReference = typeformEmbed.makePopup(
+      "https://zaynjarvis.typeform.com/to/msw805",
+      {
+        mode: "popup",
+        hideHeaders: true,
+        hideFooters: true,
+        onSubmit: () =>
+          setTimeout(() => {
+            this.typeFormReference.close();
+          }, 5000)
+      }
+    );
+  }
   componentDidUpdate() {
     this.typeForm();
   }
@@ -25,6 +42,10 @@ class Contact extends Component {
       }
     );
   }
+
+  typeFormPopup() {
+    this.typeFormReference.open();
+  }
   render() {
     return (
       <div id="contact" className="content">
@@ -39,6 +60,9 @@ class Contact extends Component {
               <i>Call me: +65 8309-9012</i>
               <br />Email me: zaynjarvis@gmail.com
             </p>
+            <button id="message" onClick={this.typeFormPopup}>
+              Send a Message
+            </button>
           </div>
         </div>
       </div>
