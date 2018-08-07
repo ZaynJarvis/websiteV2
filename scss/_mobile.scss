@@ -153,7 +153,7 @@
     }
   }
   #home::after {
-    @include overlay(0, 100vw, 100vh, 0.8);
+    @include overlay(0, 100vw, 100vh, 0.3);
   }
   html {
     font-size: 10px;
@@ -167,6 +167,7 @@
   }
 }
 
+// portrait mode for phone
 @include mediaSmSp {
   #home::after {
     @include overlay(0, 100vw, 100vh, 0.8);
