@@ -13,6 +13,9 @@ body {
   align-items: center;
   justify-content: center;
 }
+.loader {
+  background: $primary-color;
+}
 .content {
   padding: 4rem 8rem;
 }
