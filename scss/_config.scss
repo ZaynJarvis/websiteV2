@@ -5,16 +5,37 @@
     @return #fff;
   }
 }
+@function set-highlight-color($color, $color-base) {
+  @if (lightness($color) > 50) {
+    @return darken($color-base, 10);
+  } @else {
+    @return lighten($color-base, 10);
+  }
+}
 
+// $primary-color: rgb(78, 74, 74);
 $primary-color: rgb(215, 218, 214);
+$highlight-color-base: #439c8d;
+$background-opacity: 0.9;
+
 $secondary-color: set-text-color($primary-color);
-$highlight-color: #88585a;
+$highlight-color: set-highlight-color($primary-color, $highlight-color-base);
 $show-home-image: true;
 $home-image: url("/assets/img/background.jpg");
-$background-opacity: 0.9;
 
 $middle-size: 300px;
 $small-size: 200px;
+@mixin overlay($left, $width, $height, $opacity) {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: $left;
+  width: $width;
+  height: $height;
+  z-index: -1;
+  background-color: $primary-color;
+  opacity: $opacity;
+}
 
 @mixin hover-color($color) {
   &:hover {
@@ -32,17 +53,6 @@ $small-size: 200px;
       background: $home-image;
       background-attachment: fixed;
       background-size: cover;
-    }
-    &::after {
-      content: "";
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: -1;
-      background-color: $primary-color;
-      opacity: $background-opacity;
     }
   }
 }

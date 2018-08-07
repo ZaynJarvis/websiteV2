@@ -23,7 +23,7 @@ class About extends Component {
             </div>
           </div>
           <div className="projects">
-            <div className="project">
+            <div className="project project-text">
               <h3>Trainer</h3>
               <p>
                 I am a trainer of Garage@EEE. My specialty is in software
@@ -33,7 +33,7 @@ class About extends Component {
               </p>
             </div>
 
-            <div className="project">
+            <div className="project project-text">
               <h3>Software Engineer</h3>
               <p>
                 I am a Software Engineer for a start-up company, SDI Academy. My
@@ -44,7 +44,7 @@ class About extends Component {
               </p>
             </div>
 
-            <div className="project">
+            <div className="project project-text">
               <h3>Tech Director</h3>
               <p>
                 I am a Tech Director of NTUOSS (NTU Open Source Society). My
@@ -53,7 +53,7 @@ class About extends Component {
               </p>
             </div>
 
-            <div className="project">
+            <div className="project project-text">
               <h3>MUNer</h3>
               <p>
                 I was an active participant in Model United Nation Society when

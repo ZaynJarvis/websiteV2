@@ -1,5 +1,10 @@
 // Wide Screen
 @include mediaXL {
+  .card {
+    grid-template-columns: 7fr 3fr;
+    height: 80%;
+    width: 80%;
+  }
   .about-info {
     grid-gap: 2rem;
     grid-template-columns: 2fr 5fr;
@@ -14,10 +19,25 @@
 
 // Laptop
 @include mediaLg {
+  .card {
+    grid-template-columns: 7fr 3fr;
+    height: 80%;
+    width: 80%;
+    p {
+      font-size: 0.8rem;
+    }
+  }
+
+  .formal {
+    font-size: 1.5rem;
+  }
+  .project-video {
+    display: none;
+  }
   html {
     font-size: 14px;
   }
-  main {
+  .content {
     padding: 2rem;
   }
   .about-info {
@@ -36,12 +56,40 @@
 
 // Tablet
 @include mediaMd {
+  .formal {
+    font-size: 3rem;
+  }
+  .card {
+    &::before {
+      display: none;
+    }
+    .card-form {
+      display: none;
+    }
+
+    height: 100%;
+    width: 100%;
+    &-info {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  p {
+    font-size: 1.5rem;
+  }
+  .project-video {
+    display: none;
+  }
   html {
     font-size: 13px;
   }
-  main {
+  main,
+  #home {
     align-items: center;
     text-align: center;
+  }
+  .content {
+    padding: 5vw;
   }
   .about-info {
     grid-template-columns: 1fr;
@@ -81,8 +129,8 @@
     font-size: 10px;
   }
 
-  main {
-    padding: 1rem;
+  .content {
+    padding: 0.5rem;
   }
 
   main#home h1 {
