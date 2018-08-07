@@ -18,7 +18,7 @@ class Contact extends Component {
         hideHeaders: true,
         hideFooter: true,
         opacity: 100,
-        buttonText: "Take the survey!",
+        buttonText: "Start Now!",
         onSubmit: function() {
           console.log("Typeform successfully submitted");
         }
