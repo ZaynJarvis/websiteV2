@@ -18,6 +18,13 @@
   .lg-heading {
     font-size: 6rem;
   }
+
+  .content {
+    padding: 4rem 8rem;
+  }
+  #home::after {
+    @include overlay(0, 100vw, 100vh, 0.3);
+  }
 }
 
 // Laptop
@@ -57,6 +64,9 @@
   .lg-heading {
     font-size: 5rem;
   }
+  #home::after {
+    @include overlay(0, 100vw, 100vh, 0.1);
+  }
 }
 
 // Tablet
@@ -93,7 +103,7 @@
     text-align: center;
   }
   .content {
-    padding: 5vw;
+    padding: 2vw;
   }
   .about-info {
     grid-template-columns: 1fr;
@@ -129,12 +139,15 @@
 
 //Smart phone
 @include mediaSm {
+  #home::after {
+    @include overlay(0, 100vw, 100vh, 0.8);
+  }
   html {
     font-size: 10px;
   }
 
   .content {
-    padding: 0.5rem;
+    padding: 2rem;
   }
 
   main#home h1 {
