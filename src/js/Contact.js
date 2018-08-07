@@ -1,17 +1,35 @@
 import React, { Component } from "react";
-import TypeForm from "./TypeForm";
+import * as typeformEmbed from "@typeform/embed";
 class Contact extends Component {
   componentDidUpdate() {
-    console.log("update");
+    this.typeForm();
   }
-  componentDidMount() {}
+  componentDidMount() {
+    this.typeForm();
+  }
+
+  typeForm() {
+    const embedElement = document.querySelector(".card-form");
+
+    typeformEmbed.makeWidget(
+      embedElement,
+      "https://zaynjarvis.typeform.com/to/msw805",
+      {
+        hideHeaders: true,
+        hideFooter: true,
+        opacity: 100,
+        buttonText: "Take the survey!",
+        onSubmit: function() {
+          console.log("Typeform successfully submitted");
+        }
+      }
+    );
+  }
   render() {
     return (
       <div id="contact" className="content">
         <div className="card">
-          <div className="card-form">
-            <TypeForm />
-          </div>
+          <div className="card-form" />
           <div className="card-info">
             <h3 className="formal">Contact Information</h3>
             <p>
