@@ -17,6 +17,7 @@ class Contact extends Component {
           }, 5000)
       }
     );
+    this.embedElement = React.createRef();
   }
   componentDidUpdate() {
     this.typeForm();
@@ -26,10 +27,8 @@ class Contact extends Component {
   }
 
   typeForm() {
-    const embedElement = document.querySelector(".card-form");
-
     typeformEmbed.makeWidget(
-      embedElement,
+      this.embedElement.current,
       "https://zaynjarvis.typeform.com/to/msw805",
       {
         hideHeaders: true,
@@ -50,7 +49,7 @@ class Contact extends Component {
     return (
       <div id="contact" className="content">
         <div className="card">
-          <div className="card-form" />
+          <div className="card-form" ref={this.embedElement} />
           <div className="card-info">
             <h3 className="formal">Contact Information</h3>
             <p>
