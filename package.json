@@ -4,7 +4,7 @@
   "main": "app.js",
   "private": true,
   "dependencies": {
-    "node-sass": "^4.9.2",
+    "@typeform/embed": "^0.5.12",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-scripts": "1.1.4"
@@ -15,5 +15,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "sass": "node-sass -w scss/ -o src/css/ --recursive"
+  },
+  "devDependencies": {
+    "node-sass": "^4.9.2"
   }
 }
