@@ -106,6 +106,9 @@
 .nav-item:nth-child(4) {
   transition-delay: 0.4s; }
 
+* {
+  background-size: cover !important; }
+
 #contact {
   height: 100vh;
   width: 100vw;
@@ -120,21 +123,13 @@
   display: grid; }
   .card .card-form {
     color: #590d32;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: center;
     width: 100%;
     height: 100%;
     background: rgba(189, 194, 187, 0.97);
-    z-index: 2;
     position: relative; }
-    .card .card-form .form-section {
-      height: 70%;
-      width: 80%; }
   .card-info {
     width: 100%;
     height: 100%;
-    z-index: 2;
     background: rgba(60, 60, 60, 0.97);
     display: flex;
     flex-flow: column wrap;
@@ -144,6 +139,9 @@
       padding: 0 20px;
       line-height: 2;
       margin: 10px; }
+
+.css-wo1bey {
+  z-index: 2 !important; }
 
 .formal {
   padding: 15px;
@@ -157,8 +155,6 @@
     grid-template-columns: 7fr 3fr;
     height: 80%;
     width: 80%; }
-  .card-form {
-    display: flex; }
   .about-info {
     grid-gap: 2rem;
     grid-template-columns: 2fr 5fr; }
@@ -179,23 +175,23 @@
     background-color: #d7dad6;
     opacity: 0.3; } }
 
-@media screen and (min-width: 769px) and (max-width: 1170px) {
+@media screen and (max-width: 1170px) {
+  html {
+    font-size: 14px; }
+  body#bg-img {
+    background-position: center !important; }
   .card {
     grid-template-columns: 7fr 3fr;
     height: 80%;
     width: 80%; }
     .card p {
       font-size: 0.8rem; }
-  .card-form {
-    display: flex; }
   .formal {
     font-size: 1.5rem; }
   .project-video {
     display: none; }
-  html {
-    font-size: 14px; }
   .content {
-    padding: 2rem; }
+    padding: 1rem; }
   .about-info {
     grid-template-columns: 1fr 3fr;
     align-content: center;
@@ -214,12 +210,15 @@
     height: 100vh;
     z-index: -1;
     background-color: #d7dad6;
-    opacity: 0.1; } }
+    opacity: 0.3; } }
 
 @media screen and (max-width: 768px) {
+  body#bg-img {
+    background-position: right !important; }
   .formal {
     font-size: 3rem; }
   .card {
+    grid-template-columns: 1fr;
     height: 100%;
     width: 100%; }
     .card::before {
@@ -240,7 +239,7 @@
     align-items: center;
     text-align: center; }
   .content {
-    padding: 2vw; }
+    padding: 10vh 4vw; }
   .about-info {
     grid-template-columns: 1fr;
     align-content: center; }
@@ -277,8 +276,6 @@
     opacity: 0.8; }
   html {
     font-size: 10px; }
-  .content {
-    padding: 2rem; }
   main#home h1 {
     margin-top: 20vh; }
   .lg-heading {
