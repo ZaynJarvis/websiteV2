@@ -73,12 +73,6 @@ main {
     i {
       @include ease;
     }
-    &:hover {
-      background: rgba($secondary-color, 0.5);
-      i {
-        color: $primary-color;
-      }
-    }
   }
   #home {
     display: flex;

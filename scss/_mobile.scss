@@ -1,5 +1,25 @@
 // Wide Screen
 @include mediaXL {
+  // hover tag setup
+  .icon:hover {
+    background: rgba($secondary-color, 0.5);
+    i {
+      color: $primary-color;
+    }
+  }
+  .menu-btn:hover {
+    .btn-line {
+      background-color: $pass-color;
+    }
+  }
+  .close:hover {
+    .btn-line {
+      background-color: $delete-color;
+    }
+  }
+  .nav-link:hover {
+    color: $highlight-color;
+  }
   .card {
     grid-template-columns: 7fr 3fr;
     height: 80%;
@@ -30,6 +50,12 @@
 
 // Laptop
 @include mediaLg {
+  .icon:hover {
+    background: none;
+    i {
+      color: none;
+    }
+  }
   html {
     font-size: 20px;
   }

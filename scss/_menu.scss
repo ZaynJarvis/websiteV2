@@ -1,5 +1,5 @@
-$pass-color: rgb(80, 175, 80);
-$delete-color: rgb(201, 94, 94);
+$pass-color: rgb(24, 87, 24);
+$delete-color: rgb(109, 24, 24);
 
 .menu-btn {
   position: absolute;
@@ -16,19 +16,10 @@ $delete-color: rgb(201, 94, 94);
     margin: 0 0 5px 0;
     background: $secondary-color;
   }
-  &:hover {
-    .btn-line {
-      background-color: $pass-color;
-    }
-  }
 
   &.close {
     transform: rotate(180deg);
-    &:hover {
-      .btn-line {
-        background-color: $delete-color;
-      }
-    }
+
     .btn-line {
       &:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
@@ -103,7 +94,6 @@ $delete-color: rgb(201, 94, 94);
       padding: 1rem 0;
       text-transform: uppercase;
       @include ease;
-      &:hover,
       &.current {
         color: $highlight-color;
       }
