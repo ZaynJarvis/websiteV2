@@ -7,8 +7,7 @@
     "node-sass": "^4.9.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-scripts": "1.1.4",
-    "react-typeform-embed": "^0.1.6"
+    "react-scripts": "1.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
