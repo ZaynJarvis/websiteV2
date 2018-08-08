@@ -13,12 +13,12 @@
   background-size: 18rem;
   background-position: center;
   border-radius: 50%;
-  border: solid 3px #590d32;
+  border: solid 3px #3b6f70;
   box-shadow: 0px 0px 100px #899186; }
 
 .menu-btn {
-  position: absolute;
-  z-index: 3;
+  position: fixed;
+  z-index: 7;
   right: 2rem;
   top: 2rem;
   cursor: pointer;
@@ -41,9 +41,11 @@
 .menu {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   display: grid;
+  z-index: 6;
   grid-template-columns: 1fr 1fr;
   visibility: hidden; }
   .menu.show {
@@ -88,7 +90,7 @@
       text-transform: uppercase;
       transition: all 0.5s ease-out; }
       .menu .nav-item .nav-link.current {
-        color: #590d32; }
+        color: #3b6f70; }
 
 .nav-item:nth-child(1) {
   transition-delay: 0.1s; }
@@ -102,9 +104,6 @@
 .nav-item:nth-child(4) {
   transition-delay: 0.4s; }
 
-* {
-  background-size: cover !important; }
-
 #contact {
   height: 100vh;
   width: 100vw;
@@ -117,13 +116,14 @@
 .card {
   box-shadow: 5px 7px 100px black;
   display: grid;
-  overflow: scroll; }
+  overflow: hidden; }
   .card .card-form {
-    color: #590d32;
+    color: #3b6f70;
     width: 100%;
     height: 100%;
     background: rgba(189, 194, 187, 0.97);
-    position: relative; }
+    position: relative;
+    top: 0; }
   .card-info {
     width: 100%;
     height: 100%;
@@ -133,13 +133,15 @@
     justify-content: center;
     align-items: center;
     color: #222; }
+    .card-info h3 {
+      font-size: 20px;
+      font-weight: 400; }
     .card-info p {
-      padding: 0 20px;
+      font-size: 15px;
+      font-weight: 100;
+      padding: 0 15px;
       line-height: 2;
-      margin: 10px; }
-
-.css-wo1bey {
-  z-index: 2 !important; }
+      margin: 5px; }
 
 .formal {
   padding: 15px;
@@ -175,7 +177,7 @@
   .close:hover .btn-line {
     background-color: #6d1818; }
   .nav-link:hover {
-    color: #590d32; }
+    color: #3b6f70; }
   .card {
     grid-template-columns: 7fr 3fr;
     height: 80%;
@@ -191,7 +193,7 @@
   .lg-heading {
     font-size: 6rem; }
   .content {
-    padding: 4rem 8rem; }
+    padding: 3rem 8rem; }
   #home::after {
     content: "";
     position: fixed;
@@ -201,7 +203,10 @@
     height: 100vh;
     z-index: -1;
     background-color: #d7dad6;
-    opacity: 0.3; } }
+    opacity: 0.7; }
+  #bg-img {
+    background-size: cover !important;
+    background-position: right; } }
 
 @media screen and (max-width: 1170px) {
   .icon:hover {
@@ -224,7 +229,7 @@
   .project-video {
     display: none; }
   .content {
-    padding: 1rem; }
+    padding: 3rem; }
   .about-info {
     grid-template-columns: 1fr 3fr;
     grid-template-rows: 1fr;
@@ -244,13 +249,14 @@
     height: 100vh;
     z-index: -1;
     background-color: #d7dad6;
-    opacity: 0.3; } }
+    opacity: 0.7; } }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 769px) {
   .formal {
     font-size: 3rem; }
   .card {
     grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
     justify-content: center;
     height: 100%;
     width: 100%; }
@@ -271,7 +277,11 @@
   main,
   #home {
     align-items: center;
-    text-align: center; }
+    text-align: center;
+    justify-content: baseline; }
+  #bg-img {
+    background-size: 220%;
+    background-position: right; }
   .content {
     padding: 10vh 4vw; }
   .about-info {
@@ -309,15 +319,21 @@
     height: 100vh;
     z-index: -1;
     background-color: #d7dad6;
-    opacity: 0.3; }
+    opacity: 0.7; }
   html {
     font-size: 10px; }
   main#home h1 {
     margin-top: 20vh; }
   .lg-heading {
-    font-size: 4rem; } }
+    font-size: 4rem; }
+  #bg-img {
+    background-size: cover !important;
+    background-position: right; } }
 
 @media screen and (max-height: 420px) {
+  #bg-img {
+    background-size: cover !important;
+    background-position: right; }
   #home::after {
     content: "";
     position: fixed;
@@ -353,6 +369,10 @@
   .lg-heading {
     font-size: 4rem; } }
 
+#root {
+  height: 100vh;
+  width: 100vw; }
+
 body {
   background: #d7dad6;
   color: #222;
@@ -365,7 +385,6 @@ body {
   body#bg-img {
     background: url("/assets/img/background.jpg");
     background-attachment: fixed;
-    background-size: 120vh;
     background-position: right; }
 
 .loader {
@@ -424,7 +443,7 @@ header {
   width: 100%; }
 
 .text-highlight {
-  color: #590d32; }
+  color: #3b6f70; }
 
 main {
   height: 100%; }
@@ -439,19 +458,21 @@ main {
     background: transparent;
     border-radius: 5px;
     margin-right: 0.5rem;
+    cursor: pointer;
     transition: all 0.5s ease-out; }
     main .icon i {
       transition: all 0.5s ease-out; }
   main #home {
     display: flex;
-    flex-flow: column wrap; }
+    flex-flow: column wrap;
+    justify-content: center; }
     main #home h1 {
       margin-top: 20vh; }
   main .content h1 {
     margin-bottom: 3rem; }
 
 .selected {
-  color: #590d32; }
+  color: #3b6f70; }
 
 .about-info {
   display: grid; }
@@ -478,7 +499,7 @@ main {
     .projects .project h3 {
       margin-bottom: 10px;
       font-size: 1.5rem;
-      color: #590d32; }
+      color: #3b6f70; }
     .projects .project.project-text {
       padding: 2rem; }
     .projects .project iframe {

@@ -84,7 +84,7 @@ class Project extends Component {
           <div className="project project-video">
             <iframe
               title="youtube video"
-              src="https://www.youtube.com/embed/pzRyTLj1wko"
+              src="https://www.youtube.com/embed/KF-6HCRxYfY?rel=0&amp;controls=0&amp;showinfo=0"
               frameBorder="0"
               allow="autoplay; encrypted-media"
               allowFullScreen="true"
