@@ -52,10 +52,7 @@ class Contact extends Component {
       <div id="contact" className="content">
         <div className="card">
           <div className="card-form" ref={this.embedElement} />
-          <div
-            className="card-info"
-            onClick={() => this.forceUpdate(() => console.log(this))}
-          >
+          <div className="card-info">
             <h3 className="formal">Contact Information</h3>
             <p>
               10 Nanyang Dr,<br />Singapore 637720<br />Liu Zhiheng

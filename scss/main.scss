@@ -95,7 +95,8 @@ main {
   }
 }
 
-.selected {
+.selected,
+.selected a {
   color: $highlight-color;
 }
 

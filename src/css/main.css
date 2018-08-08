@@ -471,7 +471,8 @@ main {
   main .content h1 {
     margin-bottom: 3rem; }
 
-.selected {
+.selected,
+.selected a {
   color: #3b6f70; }
 
 .about-info {
