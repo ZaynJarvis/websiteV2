@@ -1,11 +1,14 @@
 import React, { Component } from "react";
-import Content from "./Content";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Home from "./Home";
+import About from "./About";
+import Project from "./Project";
+import Contact from "./Contact";
 import "../css/main.css";
 
 export default class Main extends Component {
   constructor(props) {
     super(props);
-
     this.showMenuFunc = () => this.state.showMenu;
     this.showRouterFunc = () => this.state.router;
     this.clickHandler = this.clickHandler.bind(this);
@@ -16,6 +19,7 @@ export default class Main extends Component {
       router: this.props.router || "home"
     };
   }
+  componentDidUpdate() {}
 
   clickHandler() {
     return this.setState({ showMenu: !this.state.showMenu });
@@ -31,11 +35,19 @@ export default class Main extends Component {
 
   render() {
     return (
-      <main>
-        <MenuBtn showMenu={this.showMenuFunc} menuAction={this.clickHandler} />
-        <Menu showMenu={this.showMenuFunc} router={this.routerHandler} />
-        <Content router={this.state.router} />
-      </main>
+      <Router>
+        <main>
+          <MenuBtn
+            showMenu={this.showMenuFunc}
+            menuAction={this.clickHandler}
+          />
+          <Menu showMenu={this.showMenuFunc} router={this.routerHandler} />
+          <Route exact path="/" component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/project" component={Project} />
+          <Route path="/contact" component={Contact} />
+        </main>
+      </Router>
     );
   }
 }
@@ -62,13 +74,14 @@ let NavItem = props => {
       <i
         className={(() => {
           let out = "nav-link ";
+          console.log(window.location.pathname);
           if (props.showMenu()) out += "show ";
-          if (props.router("fetch") === props.name) out += "selected ";
+          if (window.location.pathname === props.name) out += "selected ";
           return out;
         })()}
         onClick={() => props.router(props.name)}
       >
-        {props.value}
+        <Link to={props.name}>{props.value}</Link>
       </i>
     </li>
   );
@@ -84,25 +97,25 @@ let Menu = props => {
       </div>
       <ul className={props.showMenu() ? "menu-nav show" : "menu-nav"}>
         <NavItem
-          name="home"
+          name="/home"
           value="Home"
           router={props.router}
           showMenu={props.showMenu}
         />
         <NavItem
-          name="about"
+          name="/about"
           value="About Me"
           router={props.router}
           showMenu={props.showMenu}
         />
         <NavItem
-          name="project"
+          name="/project"
           value="My Projects"
           router={props.router}
           showMenu={props.showMenu}
         />
         <NavItem
-          name="contact"
+          name="/contact"
           value="Contact Me"
           router={props.router}
           showMenu={props.showMenu}
