@@ -15,7 +15,7 @@
 
 // $primary-color: rgb(78, 74, 74);
 $primary-color: rgb(215, 218, 214);
-$highlight-color-base: #85144b;
+$highlight-color-base: #4c9092;
 $background-opacity: 0.9;
 
 $secondary-color: set-text-color($primary-color);
@@ -52,7 +52,6 @@ $small-size: 15rem;
     &#bg-img {
       background: $home-image;
       background-attachment: fixed;
-      background-size: 120vh;
       background-position: right;
     }
   }
@@ -77,7 +76,7 @@ $small-size: 15rem;
 }
 
 @mixin mediaMd {
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 769px) {
     @content;
   }
 }

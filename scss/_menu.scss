@@ -2,8 +2,8 @@ $pass-color: rgb(24, 87, 24);
 $delete-color: rgb(109, 24, 24);
 
 .menu-btn {
-  position: absolute;
-  z-index: 3;
+  position: fixed;
+  z-index: 7;
   right: 2rem;
   top: 2rem;
   cursor: pointer;
@@ -37,9 +37,11 @@ $delete-color: rgb(109, 24, 24);
 .menu {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   display: grid;
+  z-index: 6;
   grid-template-columns: 1fr 1fr;
   visibility: hidden;
   &.show {
