@@ -4,6 +4,7 @@ class Contact extends Component {
   constructor(prop) {
     super(prop);
     this.typeFormPopup = this.typeFormPopup.bind(this);
+    this.typeForm = this.typeForm.bind(this);
     // const typeFormReference;
     this.typeFormReference = typeformEmbed.makePopup(
       "https://zaynjarvis.typeform.com/to/msw805",
@@ -27,6 +28,7 @@ class Contact extends Component {
   }
 
   typeForm() {
+    this.that = this;
     typeformEmbed.makeWidget(
       this.embedElement.current,
       "https://zaynjarvis.typeform.com/to/msw805",
@@ -35,8 +37,8 @@ class Contact extends Component {
         hideFooter: true,
         opacity: 100,
         buttonText: "Start Now!",
-        onSubmit: function() {
-          console.log("Typeform successfully submitted");
+        onSubmit: () => {
+          this.forceUpdate();
         }
       }
     );
@@ -50,7 +52,10 @@ class Contact extends Component {
       <div id="contact" className="content">
         <div className="card">
           <div className="card-form" ref={this.embedElement} />
-          <div className="card-info">
+          <div
+            className="card-info"
+            onClick={() => this.forceUpdate(() => console.log(this))}
+          >
             <h3 className="formal">Contact Information</h3>
             <p>
               10 Nanyang Dr,<br />Singapore 637720<br />Liu Zhiheng
