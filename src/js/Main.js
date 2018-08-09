@@ -1,51 +1,48 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  Redirect
+} from "react-router-dom";
 import Home from "./Home";
 import About from "./About";
 import Project from "./Project";
+import PageNotFound from "./PageNotFound";
 import Contact from "./Contact";
 import "../css/main.css";
 
 export default class Main extends Component {
   constructor(props) {
     super(props);
-    this.showMenuFunc = () => this.state.showMenu;
-    this.showRouterFunc = () => this.state.router;
-    this.clickHandler = this.clickHandler.bind(this);
-    this.routerHandler = this.routerHandler.bind(this);
+    this.menuAction = this.menuAction.bind(this);
 
     this.state = {
-      showMenu: false,
-      router: this.props.router || "home"
+      showMenu: false
     };
   }
   componentDidUpdate() {}
 
-  clickHandler() {
-    return this.setState({ showMenu: !this.state.showMenu });
-  }
-
-  routerHandler(destination) {
-    if (destination === "fetch") return this.state.router;
-    return this.setState({
-      router: destination,
-      showMenu: !this.state.showMenu
-    });
+  menuAction(toggleMode) {
+    if (!toggleMode) return this.state.showMenu;
+    return () => this.setState({ showMenu: !this.state.showMenu });
   }
 
   render() {
     return (
       <Router>
         <main>
-          <MenuBtn
-            showMenu={this.showMenuFunc}
-            menuAction={this.clickHandler}
-          />
-          <Menu showMenu={this.showMenuFunc} router={this.routerHandler} />
-          <Route exact path="/" component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/project" component={Project} />
-          <Route path="/contact" component={Contact} />
+          <MenuBtn showMenu={this.menuAction} menuAction={this.menuAction} />
+          <Menu showMenu={this.menuAction} />
+          <Switch>
+            <Redirect from="/home" to="/" />
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/project" component={Project} />
+            <Route path="/contact" component={Contact} />
+            <Route component={PageNotFound} />
+          </Switch>
         </main>
       </Router>
     );
@@ -56,7 +53,7 @@ let MenuBtn = props => {
   return (
     <div
       className={props.showMenu() ? "menu-btn close" : "menu-btn"}
-      onClick={props.menuAction}
+      onClick={() => props.menuAction(true)()}
     >
       <div className={props.showMenu() ? "btn-line show" : "btn-line"} />
       <div className={props.showMenu() ? "btn-line show" : "btn-line"} />
@@ -79,7 +76,7 @@ let NavItem = props => {
           if (window.location.pathname === props.name) out += "selected ";
           return out;
         })()}
-        onClick={() => props.router(props.name)}
+        onClick={() => props.showMenu(true)()}
       >
         <Link to={props.name}>{props.value}</Link>
       </i>
@@ -96,30 +93,14 @@ let Menu = props => {
         <div className="portrait" />
       </div>
       <ul className={props.showMenu() ? "menu-nav show" : "menu-nav"}>
-        <NavItem
-          name="/home"
-          value="Home"
-          router={props.router}
-          showMenu={props.showMenu}
-        />
-        <NavItem
-          name="/about"
-          value="About Me"
-          router={props.router}
-          showMenu={props.showMenu}
-        />
+        <NavItem name="/" value="Home" showMenu={props.showMenu} />
+        <NavItem name="/about" value="About Me" showMenu={props.showMenu} />
         <NavItem
           name="/project"
           value="My Projects"
-          router={props.router}
           showMenu={props.showMenu}
         />
-        <NavItem
-          name="/contact"
-          value="Contact Me"
-          router={props.router}
-          showMenu={props.showMenu}
-        />
+        <NavItem name="/contact" value="Contact Me" showMenu={props.showMenu} />
       </ul>
     </nav>
   );

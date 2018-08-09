@@ -4,7 +4,7 @@
   padding: 0; }
 
 .dead {
-  display: none; }
+  display: none !important; }
 
 .portrait {
   width: 18rem;
@@ -143,6 +143,12 @@
       line-height: 2;
       margin: 5px; }
 
+.card-thank {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center; }
+
 .formal {
   padding: 15px;
   font-weight: bold; }
@@ -150,22 +156,23 @@
 .md-heading {
   font-size: 2rem; }
 
-#message {
+.message {
   transition: all 0.5s ease-out;
   box-shadow: 0px 0px 3rem white;
-  transform: translateY(5vh);
+  transform: translateY(3vh);
   padding: 1rem;
   margin-bottom: 2rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
   background: transparent;
   border: #3c3c3c 2px solid;
   border-radius: 10px;
   color: #222;
-  display: none;
   outline: none; }
-  #message:active {
+  .message:active {
     box-shadow: 0px 4px 2rem white;
-    transform: scale(0.96) translateY(5vh); }
+    transform: scale(0.96) translateY(3vh); }
+  .message-mobile {
+    display: none; }
 
 @media screen and (min-width: 1171px) {
   .icon:hover {
@@ -206,7 +213,10 @@
     opacity: 0.7; }
   #bg-img {
     background-size: cover !important;
-    background-position: right; } }
+    background-position: right; }
+  .message:hover {
+    box-shadow: 0px 0px 3.3rem white;
+    transform: scale(1.04) translateY(3vh); } }
 
 @media screen and (max-width: 1170px) {
   .icon:hover {
@@ -299,7 +309,7 @@
   #contact p {
     font-size: 1.8rem;
     font-weight: lighter; }
-  #message {
+  .message-mobile {
     display: block; } }
 
 @media screen and (max-width: 500px) and (orientation: portrait) {
@@ -513,3 +523,12 @@ main {
 .project-video {
   position: relative;
   min-height: 51%; }
+
+.page-not-found {
+  box-shadow: 5px 7px 100px black;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  overflow: hidden;
+  height: 80%;
+  width: 80%; }

@@ -5,7 +5,9 @@ class Contact extends Component {
     super(prop);
     this.typeFormPopup = this.typeFormPopup.bind(this);
     this.typeForm = this.typeForm.bind(this);
-    // const typeFormReference;
+    this.state = {
+      showThankyou: false
+    };
     this.typeFormReference = typeformEmbed.makePopup(
       "https://zaynjarvis.typeform.com/to/msw805",
       {
@@ -21,6 +23,7 @@ class Contact extends Component {
     this.embedElement = React.createRef();
   }
   componentDidUpdate() {
+    this.embedElement.current.innerHTML = "";
     this.typeForm();
   }
   componentDidMount() {
@@ -28,7 +31,6 @@ class Contact extends Component {
   }
 
   typeForm() {
-    this.that = this;
     typeformEmbed.makeWidget(
       this.embedElement.current,
       "https://zaynjarvis.typeform.com/to/msw805",
@@ -37,9 +39,8 @@ class Contact extends Component {
         hideFooter: true,
         opacity: 100,
         buttonText: "Start Now!",
-        onSubmit: () => {
-          this.forceUpdate();
-        }
+        onSubmit: () =>
+          setTimeout(() => this.setState({ showThankyou: true }), 8000)
       }
     );
   }
@@ -48,20 +49,45 @@ class Contact extends Component {
     this.typeFormReference.open();
   }
   render() {
+    console.log(this.state.showThankyou);
     return (
       <div id="contact" className="content">
         <div className="card">
-          <div className="card-form" ref={this.embedElement} />
+          <div
+            className={this.state.showThankyou ? "dead card-form" : "card-form"}
+            ref={this.embedElement}
+          />
+          <div
+            className={
+              this.state.showThankyou ? "card-thank " : "card-thank dead"
+            }
+          >
+            <h1 className="lg-heading">Thank you !!</h1>
+            <button
+              className="message"
+              onClick={() => this.setState({ showThankyou: false })}
+            >
+              Send another Message
+            </button>
+          </div>
           <div className="card-info">
             <h3 className="formal">Contact Information</h3>
             <p>
-              10 Nanyang Dr,<br />Singapore 637720<br />Liu Zhiheng
+              10 Nanyang Dr,
+              <br />
+              Singapore 637720
+              <br />
+              Liu Zhiheng
             </p>
             <p>
               <i>Call me: +65 8309-9012</i>
-              <br />Email me: zaynjarvis@gmail.com
+              <br />
+              Email me: zaynjarvis@gmail.com
             </p>
-            <button id="message" onClick={this.typeFormPopup}>
+            <button
+              className="message message-mobile"
+              onClick={this.typeFormPopup}
+            >
               Send a Message
             </button>
           </div>
