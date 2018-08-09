@@ -97,7 +97,7 @@ $small-size: 15rem;
   padding: 0;
 }
 .dead {
-  display: none;
+  display: none !important;
 }
 .portrait {
   width: $middle-size;

@@ -51,6 +51,10 @@
     background-size: cover !important;
     background-position: right;
   }
+  .message:hover {
+    box-shadow: 0px 0px 3.3rem lighten($primary-color, 70);
+    transform: scale(1.04) translateY(3vh);
+  }
 }
 
 // Laptop
@@ -172,7 +176,7 @@
     }
   }
 
-  #message {
+  .message-mobile {
     display: block;
   }
 }

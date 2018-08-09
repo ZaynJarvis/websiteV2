@@ -147,3 +147,13 @@ main {
   position: relative;
   min-height: 51%;
 }
+
+.page-not-found {
+  box-shadow: 5px 7px 100px darken($primary-color, 100);
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  overflow: hidden;
+  height: 80%;
+  width: 80%;
+}
