@@ -69,10 +69,7 @@ class Contact extends Component {
               Send another Message
             </button>
           </div>
-          <div
-            className="card-info"
-            onClick={() => this.setState({ showThankyou: true })}
-          >
+          <div className="card-info">
             <h3 className="formal">Contact Information</h3>
             <p>
               10 Nanyang Dr,
