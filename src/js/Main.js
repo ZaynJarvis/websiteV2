@@ -71,7 +71,6 @@ let NavItem = props => {
       <i
         className={(() => {
           let out = "nav-link ";
-          console.log(window.location.pathname);
           if (props.showMenu()) out += "show ";
           if (window.location.pathname === props.name) out += "selected ";
           return out;

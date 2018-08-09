@@ -49,7 +49,6 @@ class Contact extends Component {
     this.typeFormReference.open();
   }
   render() {
-    console.log(this.state.showThankyou);
     return (
       <div id="contact" className="content">
         <div className="card">
@@ -64,13 +63,16 @@ class Contact extends Component {
           >
             <h1 className="lg-heading">Thank you !!</h1>
             <button
-              className="message"
+              className="message message-pc"
               onClick={() => this.setState({ showThankyou: false })}
             >
               Send another Message
             </button>
           </div>
-          <div className="card-info">
+          <div
+            className="card-info"
+            onClick={() => this.setState({ showThankyou: true })}
+          >
             <h3 className="formal">Contact Information</h3>
             <p>
               10 Nanyang Dr,
