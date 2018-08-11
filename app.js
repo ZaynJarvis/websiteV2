@@ -3,7 +3,11 @@ const express = require("express"),
   app = express().use(bodyParser.json());
 const https = require("https");
 const http = require("http");
+const router = express.Router();
+const JSONtoCourseMiddleWare = require("./icsHelper");
 const fs = require("fs");
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 const options = {
   key: fs.readFileSync("../cert/zaynjarvis.com.key"),
   cert: fs.readFileSync("../cert/zaynjarvis_com.crt"),
@@ -22,6 +26,21 @@ http
   })
   .listen(80);
 
-app.get("/", function(request, response) {
-  response.sendFile("/index.html");
+app.get("/", (req, res) => {
+  res.sendFile("/index.html");
 });
+
+app.get("/download", (req, res) => {
+  var file = req.query.file;
+  var fileLocation = path.join(__dirname, "file", file);
+  res.download(fileLocation, "Schedule.ics");
+});
+
+router.route("/store").post((req, res) => {
+  const content = req.body.content;
+  const fileName = req.body.file;
+  JSONtoCourseMiddleWare(content, fileName);
+  res.json({ file: `${fileName}.ics` });
+});
+
+app.use("/api", router);
