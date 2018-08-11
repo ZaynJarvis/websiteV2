@@ -104,6 +104,9 @@
 .nav-item:nth-child(4) {
   transition-delay: 0.4s; }
 
+.nav-item:nth-child(5) {
+  transition-delay: 0.5s; }
+
 #contact {
   height: 100vh;
   width: 100vw;
@@ -515,12 +518,10 @@ main {
       color: #3b6f70; }
     .projects .project.project-text {
       padding: 2rem; }
-    .projects .project iframe {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      left: 0;
-      top: 0; }
+
+iframe {
+  width: 100%;
+  height: 100%; }
 
 .project-video {
   position: relative;
@@ -528,9 +529,43 @@ main {
 
 .page-not-found {
   box-shadow: 5px 7px 100px black;
-  display: grid;
-  align-content: center;
+  display: flex;
+  flex-flow: column wrap;
   justify-content: center;
+  align-items: center;
   overflow: hidden;
   height: 80%;
   width: 80%; }
+
+form,
+.video {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  background: rgba(241, 242, 241, 0.6); }
+
+#user-input {
+  height: 90%;
+  width: 100%;
+  padding: 7rem 10px;
+  background: transparent; }
+  #user-input:active, #user-input:focus {
+    outline: none; }
+
+.generate {
+  transition: all 0.5s ease-out;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  background: transparent;
+  color: #3b6f70;
+  width: 100%;
+  height: 10%;
+  color: #222;
+  outline: none;
+  font-size: 1.8rem; }
+  .generate:active {
+    transform: scale(0.999); }
