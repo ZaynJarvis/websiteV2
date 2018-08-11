@@ -103,7 +103,7 @@ $delete-color: rgb(109, 24, 24);
   }
 }
 
-@for $x from 1 through 4 {
+@for $x from 1 through 5 {
   .nav-item:nth-child(#{$x}) {
     transition-delay: $x * 0.1s;
   }

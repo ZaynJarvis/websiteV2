@@ -5,11 +5,13 @@
   "private": true,
   "dependencies": {
     "@typeform/embed": "^0.5.12",
+    "ics": "^2.7.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
+    "dns": "file:./src/mock/dns",
     "redux": "^4.0.0"
   },
   "scripts": {
