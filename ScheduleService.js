@@ -10,6 +10,12 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.use(express.static(path.join(__dirname, "build")));
+
+app.get("/", (req, res) => {
+  res.send("hello");
+});
+
 app.get("/download", (req, res) => {
   var file = req.query.file;
   var fileLocation = path.join(__dirname, "file", file);
