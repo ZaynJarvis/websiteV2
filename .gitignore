@@ -9,6 +9,7 @@
 # production
 /build
 /scss
+/file
 
 # misc
 .DS_Store
