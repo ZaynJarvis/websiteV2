@@ -41,11 +41,19 @@ app.get("/download", (req, res) => {
   res.download(fileLocation, "Schedule.ics");
 });
 
-router.route("/store").post((req, res) => {
+app.post("/store", (req, res) => {
   const content = req.body.content;
   const fileName = req.body.file;
   JSONtoCourseMiddleWare(content, fileName);
   res.json({ file: `${fileName}.ics` });
 });
 
-app.use("/api", router);
+app.get("/test", (req, res) => {
+  res.send("test");
+});
+
+app.get("/download", (req, res) => {
+  var file = req.query.file;
+  var fileLocation = path.join(__dirname, "file", file);
+  res.download(fileLocation, "Schedule.ics");
+});
