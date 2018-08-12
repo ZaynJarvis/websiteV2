@@ -17,7 +17,6 @@ class Calendar extends Component {
       .substring(2);
     // get the data, transfer to result
     const result = generateJSON(this.state.value);
-    console.log(result);
     // send the result to the server
     fetch("https://zaynjarvis.com/store", {
       method: "POST",
@@ -27,7 +26,6 @@ class Calendar extends Component {
       body: JSON.stringify({ content: result, file: fileName })
     })
       .then(function(res) {
-        console.log(res);
         res.json().then(body => {
           window.open("https://zaynjarvis.com/download?file=" + body.file);
         });
