@@ -6,7 +6,11 @@ const http = require("http");
 const router = express.Router();
 const JSONtoCourseMiddleWare = require("./icsHelper");
 const fs = require("fs");
+const cors = require("cors");
+
 const path = require("path");
+app.use(cors());
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 const options = {

@@ -3,7 +3,6 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
-const router = express.Router();
 const JSONtoCourseMiddleWare = require("./icsHelper");
 
 app.use(cors());
