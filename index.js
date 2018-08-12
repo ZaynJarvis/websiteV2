@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, "build")));
 
-app.get("/", (req, res) => {
+app.get("/main", (req, res) => {
   res.sendFile("/index.html");
 });
 
