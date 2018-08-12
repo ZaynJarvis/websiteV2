@@ -17,8 +17,9 @@ app.get("/", (req, res) => {
 });
 
 app.get("/download", (req, res) => {
-  var file = req.query.file;
-  var fileLocation = path.join(__dirname, "file", file);
+  const file = req.query.file;
+  const fileLocation = path.join(__dirname, "file", file);
+  console.log(fileLocation);
   res.download(fileLocation, "Schedule.ics");
 });
 
@@ -31,4 +32,4 @@ router.route("/store").post((req, res) => {
 
 app.use("/api", router);
 
-app.listen(4430);
+app.listen(4431);
