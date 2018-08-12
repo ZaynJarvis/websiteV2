@@ -3,7 +3,6 @@ const express = require("express"),
   app = express().use(bodyParser.json());
 const https = require("https");
 const http = require("http");
-const router = express.Router();
 const JSONtoCourseMiddleWare = require("./icsHelper");
 const fs = require("fs");
 const cors = require("cors");
