@@ -2,7 +2,7 @@ const ics = require("ics");
 const fs = require("fs");
 
 const DAYTIME = 24 * 60 * 60 * 1000;
-const OFFSET = 15 * 60 * 60 * 1000;
+const OFFSET = 16 * 60 * 60 * 1000;
 const WEEKTIME = 7 * DAYTIME;
 const WEEKDAY = {
   MON: 0,
