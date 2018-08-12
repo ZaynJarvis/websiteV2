@@ -17,6 +17,7 @@ class Calendar extends Component {
       .substring(2);
     // get the data, transfer to result
     const result = generateJSON(this.state.value);
+    console.log(result);
     // send the result to the server
     fetch("https://zaynjarvis.com/store", {
       method: "POST",
@@ -46,7 +47,7 @@ class Calendar extends Component {
           <div className="video">
             <iframe
               title="youtube video"
-              src="https://www.youtube.com/embed/svTCpjJvONY?rel=0&amp;showinfo=0"
+              src="https://www.youtube.com/embed/Ggwbq1gYin4?rel=0&amp;showinfo=0"
               frameBorder="0"
               allow="autoplay; encrypted-media"
               allowFullScreen="true"
