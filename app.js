@@ -32,19 +32,19 @@ http
   .listen(80);
 
 app.get("/", (req, res) => {
-  res.sendFile("/index.html");
+  res.sendFile(__dirname + "/build/index.html");
 });
 app.get("/about", (req, res) => {
-  res.sendFile("/index.html");
+  res.sendFile(__dirname + "/build/index.html");
 });
 app.get("/project", (req, res) => {
-  res.sendFile("/index.html");
+  res.sendFile(__dirname + "/build/index.html");
 });
 app.get("/contact", (req, res) => {
-  res.sendFile("/index.html");
+  res.sendFile(__dirname + "/build/index.html");
 });
 app.get("/calendar", (req, res) => {
-  res.sendFile("/index.html");
+  res.sendFile(__dirname + "/build/index.html");
 });
 
 app.get("/download", (req, res) => {
