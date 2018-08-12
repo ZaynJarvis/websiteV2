@@ -2,7 +2,7 @@ const ics = require("ics");
 const fs = require("fs");
 
 const DAYTIME = 24 * 60 * 60 * 1000;
-const OFFSET = DAYTIME / 2;
+const OFFSET = 15 * 60 * 60 * 1000;
 const WEEKTIME = 7 * DAYTIME;
 const WEEKDAY = {
   MON: 0,
@@ -26,7 +26,7 @@ const dateCalculation = (d, T) => {
     0
   ).getTime();
 
-  const calibrated = new Date(original - OFFSET);
+  const calibrated = new Date(original + OFFSET);
 
   return [
     parseInt(calibrated.getFullYear(), 10),
