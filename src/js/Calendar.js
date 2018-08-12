@@ -18,7 +18,7 @@ class Calendar extends Component {
     // get the data, transfer to result
     const result = generateJSON(this.state.value);
     // send the result to the server
-    fetch("http://localhost:4430/store", {
+    fetch("http://139.59.11.43:4430/store", {
       method: "POST",
       headers: {
         "Content-Type": "application/json; charset=utf-8"
