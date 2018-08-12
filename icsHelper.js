@@ -2,6 +2,7 @@ const ics = require("ics");
 const fs = require("fs");
 
 const DAYTIME = 24 * 60 * 60 * 1000;
+const OFFSET = DAYTIME / 2;
 const WEEKTIME = 7 * DAYTIME;
 const WEEKDAY = {
   MON: 0,
@@ -15,12 +16,23 @@ const WEEKDAY = {
 const semesterStart = new Date("August 13, 2018 00:00:00 GMT+08:00").getTime();
 
 const dateCalculation = (d, T) => {
-  return [
+  const original = new Date(
     parseInt(d.getFullYear(), 10),
-    parseInt(d.getMonth(), 10) + 1,
+    parseInt(d.getMonth(), 10),
     parseInt(d.getDate(), 10),
     parseInt(T.slice(0, 2), 10),
-    parseInt(T.slice(2, 4), 10)
+    parseInt(T.slice(2, 4), 10),
+    1000
+  ).getTime();
+
+  const calibrated = new Date(original - OFFSET);
+
+  return [
+    parseInt(calibrated.getFullYear(), 10),
+    parseInt(calibrated.getMonth(), 10) + 1,
+    parseInt(calibrated.getDate(), 10),
+    parseInt(calibrated.getHours(), 10),
+    parseInt(calibrated.getMinutes(), 10)
   ];
 };
 

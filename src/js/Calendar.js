@@ -46,7 +46,7 @@ class Calendar extends Component {
           <div className="video">
             <iframe
               title="youtube video"
-              src="https://www.youtube.com/embed/svTCpjJvONY"
+              src="https://www.youtube.com/embed/svTCpjJvONY?rel=0&amp;showinfo=0"
               frameBorder="0"
               allow="autoplay; encrypted-media"
               allowFullScreen="true"
