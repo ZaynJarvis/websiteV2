@@ -31,6 +31,23 @@ http
   })
   .listen(80);
 
+app.post("/store", (req, res) => {
+  const content = req.body.content;
+  const fileName = req.body.file;
+  JSONtoCourseMiddleWare(content, fileName);
+  res.json({ file: `${fileName}.ics` });
+});
+
+app.get("/test", (req, res) => {
+  res.send("test");
+});
+
+app.get("/download", (req, res) => {
+  const file = req.query.file;
+  const fileLocation = path.join(__dirname, "file", file);
+  res.download(fileLocation, "Schedule.ics");
+});
+
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/build/index.html");
 });
@@ -45,27 +62,4 @@ app.get("/contact", (req, res) => {
 });
 app.get("/calendar", (req, res) => {
   res.sendFile(__dirname + "/build/index.html");
-});
-
-app.get("/download", (req, res) => {
-  var file = req.query.file;
-  var fileLocation = path.join(__dirname, "file", file);
-  res.download(fileLocation, "Schedule.ics");
-});
-
-app.post("/store", (req, res) => {
-  const content = req.body.content;
-  const fileName = req.body.file;
-  JSONtoCourseMiddleWare(content, fileName);
-  res.json({ file: `${fileName}.ics` });
-});
-
-app.get("/test", (req, res) => {
-  res.send("test");
-});
-
-app.get("/download", (req, res) => {
-  var file = req.query.file;
-  var fileLocation = path.join(__dirname, "file", file);
-  res.download(fileLocation, "Schedule.ics");
 });
