@@ -37,8 +37,9 @@ const dateCalculation = (d, T) => {
   ];
 };
 
-const generateCIS = (id, courseType, targetJson) => {
+const generateCIS = (item, courseType, targetJson) => {
   let serialEvent = [];
+  console.log("item" + item);
   targetJson.week.forEach(weekNumber => {
     const time =
       semesterStart +
@@ -54,7 +55,7 @@ const generateCIS = (id, courseType, targetJson) => {
         new Date(time),
         targetJson.courseTime[targetJson.weekday][1]
       ),
-      title: id,
+      title: item.id,
       description: courseType + " " + targetJson.group,
       categories: ["NTU course"],
       location: targetJson.location,
@@ -81,7 +82,7 @@ function JSONtoCourseMiddleWare(jsonInput, fileName) {
       const matchContent = item.course.content[item.course.type[courseType]];
       for (let t = 0; t < matchContent.length; t++) {
         eventArray = eventArray.concat(
-          generateCIS(item.id, item.course.type[courseType], matchContent[t])
+          generateCIS(item, item.course.type[courseType], matchContent[t])
         );
       }
     }
