@@ -34,6 +34,18 @@ http
 app.get("/", (req, res) => {
   res.sendFile("/index.html");
 });
+app.get("/about", (req, res) => {
+  res.sendFile("/index.html");
+});
+app.get("/project", (req, res) => {
+  res.sendFile("/index.html");
+});
+app.get("/contact", (req, res) => {
+  res.sendFile("/index.html");
+});
+app.get("/calendar", (req, res) => {
+  res.sendFile("/index.html");
+});
 
 app.get("/download", (req, res) => {
   var file = req.query.file;
