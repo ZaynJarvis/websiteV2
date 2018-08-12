@@ -3,8 +3,6 @@ const fs = require("fs");
 
 const DAYTIME = 24 * 60 * 60 * 1000;
 const WEEKTIME = 7 * DAYTIME;
-// const OFFSET = 15 * 60 * 60 * 1000;
-// const OFFSET = 0;
 const WEEKDAY = {
   MON: 0,
   TUE: 1,
@@ -14,25 +12,9 @@ const WEEKDAY = {
   SAT: 5,
   SUN: 6
 };
-// semester start at Aug. 13th. In js Date Format, month start on 0.
 const semesterStart = new Date("August 13, 2018 00:00:00 GMT+08:00").getTime();
 
 const dateCalculation = (d, T) => {
-  // const original = new Date(
-  //   parseInt(d.getFullYear(), 10),
-  //   parseInt(d.getMonth(), 10),
-  //   parseInt(d.getDate(), 10),
-  //   parseInt(T.slice(0, 2), 10),
-  //   parseInt(T.slice(0, 2), 10)
-  // );
-  // const calibrated = new Date(original - OFFSET);
-  // return [
-  //   parseInt(calibrated.getFullYear(), 10),
-  //   parseInt(calibrated.getMonth(), 10) + 1,
-  //   parseInt(calibrated.getDate(), 10),
-  //   parseInt(calibrated.getHours(), 10),
-  //   parseInt(calibrated.getMinutes(), 10)
-  // ];
   return [
     parseInt(d.getFullYear(), 10),
     parseInt(d.getMonth(), 10) + 1,

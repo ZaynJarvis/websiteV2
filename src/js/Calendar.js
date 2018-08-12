@@ -14,11 +14,11 @@ class Calendar extends Component {
     event.preventDefault();
     const fileName = Math.random()
       .toString(36)
-      .substring(7);
+      .substring(2);
     // get the data, transfer to result
     const result = generateJSON(this.state.value);
     // send the result to the server
-    fetch("http://localhost:4430/api/store", {
+    fetch("http://localhost:4430/store", {
       method: "POST",
       headers: {
         "Content-Type": "application/json; charset=utf-8"

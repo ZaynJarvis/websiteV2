@@ -22,13 +22,20 @@ app.get("/download", (req, res) => {
   res.download(fileLocation, "Schedule.ics");
 });
 
-router.route("/store").post((req, res) => {
+app.post("/store", (req, res) => {
   const content = req.body.content;
   const fileName = req.body.file;
   JSONtoCourseMiddleWare(content, fileName);
   res.json({ file: `${fileName}.ics` });
 });
 
-app.use("/api", router);
+// router.route("/store").post((req, res) => {
+//   const content = req.body.content;
+//   const fileName = req.body.file;
+//   JSONtoCourseMiddleWare(content, fileName);
+//   res.json({ file: `${fileName}.ics` });
+// });
+
+// app.use("/api", router);
 
 app.listen(4430);
