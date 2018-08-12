@@ -22,7 +22,8 @@ const dateCalculation = (d, T) => {
     parseInt(d.getDate(), 10),
     parseInt(T.slice(0, 2), 10),
     parseInt(T.slice(2, 4), 10),
-    1000
+    0,
+    0
   ).getTime();
 
   const calibrated = new Date(original - OFFSET);
