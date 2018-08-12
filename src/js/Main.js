@@ -9,7 +9,7 @@ import {
 import Home from "./Home";
 import About from "./About";
 import Project from "./Project";
-import PageNotFound from "./PageNotFound";
+// import PageNotFound from "./PageNotFound";
 import Contact from "./Contact";
 import Calendar from "./Calendar";
 import "../css/main.css";
@@ -43,7 +43,7 @@ export default class Main extends Component {
             <Route path="/project" component={Project} />
             <Route path="/contact" component={Contact} />
             <Route path="/calendar" component={Calendar} />
-            <Route component={PageNotFound} />
+            {/* <Route component={PageNotFound} /> */}
           </Switch>
         </main>
       </Router>
