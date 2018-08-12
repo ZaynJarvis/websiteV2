@@ -3,6 +3,8 @@ const fs = require("fs");
 
 const DAYTIME = 24 * 60 * 60 * 1000;
 const WEEKTIME = 7 * DAYTIME;
+// const OFFSET = 15 * 60 * 60 * 1000;
+// const OFFSET = 0;
 const WEEKDAY = {
   MON: 0,
   TUE: 1,
@@ -13,7 +15,32 @@ const WEEKDAY = {
   SUN: 6
 };
 // semester start at Aug. 13th. In js Date Format, month start on 0.
-const semesterStart = new Date(2018, 7, 13, 0, 0, 0).getTime();
+const semesterStart = new Date("August 13, 2018 00:00:00 GMT+08:00").getTime();
+
+const dateCalculation = (d, T) => {
+  // const original = new Date(
+  //   parseInt(d.getFullYear(), 10),
+  //   parseInt(d.getMonth(), 10),
+  //   parseInt(d.getDate(), 10),
+  //   parseInt(T.slice(0, 2), 10),
+  //   parseInt(T.slice(0, 2), 10)
+  // );
+  // const calibrated = new Date(original - OFFSET);
+  // return [
+  //   parseInt(calibrated.getFullYear(), 10),
+  //   parseInt(calibrated.getMonth(), 10) + 1,
+  //   parseInt(calibrated.getDate(), 10),
+  //   parseInt(calibrated.getHours(), 10),
+  //   parseInt(calibrated.getMinutes(), 10)
+  // ];
+  return [
+    parseInt(d.getFullYear(), 10),
+    parseInt(d.getMonth(), 10) + 1,
+    parseInt(d.getDate(), 10),
+    parseInt(T.slice(0, 2), 10),
+    parseInt(T.slice(2, 4), 10)
+  ];
+};
 
 const generateCIS = (id, courseType, targetJson) => {
   let serialEvent = [];
@@ -23,26 +50,18 @@ const generateCIS = (id, courseType, targetJson) => {
       (weekNumber - 1) * WEEKTIME +
       WEEKDAY[targetJson.weekday] * DAYTIME;
 
-    const d = new Date(time);
-    const Y = parseInt(d.getFullYear(), 10);
-    const M = parseInt(d.getMonth(), 10) + 1;
-    const D = parseInt(d.getDate(), 10);
-
-    const x = targetJson.courseTime[targetJson.weekday][0];
-
-    const y = targetJson.courseTime[targetJson.weekday][1];
-
     const event = {
-      start: [
-        Y,
-        M,
-        D,
-        parseInt(x.slice(0, 2), 10),
-        parseInt(x.slice(2, 4), 10)
-      ],
-      end: [Y, M, D, parseInt(y.slice(0, 2), 10), parseInt(y.slice(2, 4), 10)],
+      start: dateCalculation(
+        new Date(time),
+        targetJson.courseTime[targetJson.weekday][0]
+      ),
+      end: dateCalculation(
+        new Date(time),
+        targetJson.courseTime[targetJson.weekday][1]
+      ),
       title: id,
       description: courseType + " " + targetJson.group,
+      categories: ["NTU course"],
       location: targetJson.location,
       geo: { lat: 1.29027, lon: 103.851959 },
       status: "CONFIRMED"
