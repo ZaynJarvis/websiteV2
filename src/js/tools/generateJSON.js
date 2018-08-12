@@ -34,6 +34,8 @@ export default function generateJSON(input) {
       obj[item[0]] = {};
       course = obj[item[0]];
       course.id = item[0];
+      course.title = item[1];
+      course.au = item[2];
 
       // delete first 9 items from the header, so the header and partition information has the same length.
       item.splice(0, 9);

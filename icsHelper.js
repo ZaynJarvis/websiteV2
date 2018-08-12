@@ -39,7 +39,6 @@ const dateCalculation = (d, T) => {
 
 const generateCIS = (item, courseType, targetJson) => {
   let serialEvent = [];
-  console.log("item" + item);
   targetJson.week.forEach(weekNumber => {
     const time =
       semesterStart +
@@ -56,7 +55,7 @@ const generateCIS = (item, courseType, targetJson) => {
         targetJson.courseTime[targetJson.weekday][1]
       ),
       title: item.id,
-      description: courseType + " " + targetJson.group,
+      description: item.title + "\n" + courseType + " " + targetJson.group,
       categories: ["NTU course"],
       location: targetJson.location,
       geo: { lat: 1.29027, lon: 103.851959 },
