@@ -1,0 +1,173 @@
+{
+  "content": {
+    "courseList": [
+      "E2003L",
+      "E2008L",
+      "EE2003",
+      "EE2006",
+      "EE2007",
+      "EE2008",
+      "EE2073"
+    ],
+    "length": 7,
+    "courseContent": {
+      "E2003L": {
+        "id": "E2003L",
+        "title": "SEMICONDUCTOR FUNDAMENTALS",
+        "au": "0",
+        "course": {
+          "content": {
+            "LAB": [
+              {
+                "location": "S2-B4A-04",
+                "group": "LC07",
+                "week": [11],
+                "weekday": "THU",
+                "courseTime": { "THU": ["0930", "1230"] }
+              },
+              {
+                "location": "S2-B4A-04",
+                "group": "LC07",
+                "week": [6],
+                "weekday": "THU",
+                "courseTime": { "THU": ["0930", "1230"] }
+              }
+            ]
+          },
+          "type": ["LAB"]
+        }
+      },
+      "E2008L": {
+        "id": "E2008L",
+        "title": "DATA STRUCTURES & ALGORITHMS",
+        "au": "0",
+        "course": {
+          "content": {
+            "LAB": [
+              {
+                "location": "S2.2-B4-04",
+                "group": "LA05",
+                "week": [12],
+                "weekday": "TUE",
+                "courseTime": { "TUE": ["0930", "1230"] }
+              },
+              {
+                "location": "S2.2-B4-04",
+                "group": "LA05",
+                "week": [9],
+                "weekday": "TUE",
+                "courseTime": { "TUE": ["0930", "1230"] }
+              }
+            ]
+          },
+          "type": ["LAB"]
+        }
+      },
+      "EE2003": {
+        "id": "EE2003",
+        "title": "SEMICONDUCTOR FUNDAMENTALS",
+        "au": "4",
+        "course": {
+          "content": {
+            "TUT": [
+              {
+                "location": "TR+91",
+                "group": "TC03",
+                "week": [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14],
+                "weekday": "TUE",
+                "courseTime": { "TUE": ["1530", "1730"] }
+              }
+            ]
+          },
+          "type": ["TUT"]
+        }
+      },
+      "EE2006": {
+        "id": "EE2006",
+        "title": "ENGINEERING MATHEMATICS I",
+        "au": "4",
+        "course": {
+          "content": {
+            "TUT": [
+              {
+                "location": "TR+63",
+                "group": "TA06",
+                "week": [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14],
+                "weekday": "WED",
+                "courseTime": { "WED": ["1330", "1530"] }
+              }
+            ]
+          },
+          "type": ["TUT"]
+        }
+      },
+      "EE2007": {
+        "id": "EE2007",
+        "title": "ENGINEERING MATHEMATICS II",
+        "au": "4",
+        "course": {
+          "content": {
+            "TUT": [
+              {
+                "location": "TR+93",
+                "group": "TC08",
+                "week": [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14],
+                "weekday": "FRI",
+                "courseTime": { "FRI": ["0930", "1130"] }
+              }
+            ]
+          },
+          "type": ["TUT"]
+        }
+      },
+      "EE2008": {
+        "id": "EE2008",
+        "title": "DATA STRUCTURES & ALGORITHMS",
+        "au": "4",
+        "course": {
+          "content": {
+            "TUT": [
+              {
+                "location": "TR+62",
+                "group": "TA04",
+                "week": [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14],
+                "weekday": "TUE",
+                "courseTime": { "TUE": ["1330", "1530"] }
+              }
+            ]
+          },
+          "type": ["TUT"]
+        }
+      },
+      "EE2073": {
+        "id": "EE2073",
+        "title": "INTRODUCTION TO EEE DESIGN & PROJECT",
+        "au": "2",
+        "course": {
+          "content": {
+            "PRJ": [
+              {
+                "location": "S2-B4C-15.",
+                "group": "PE02",
+                "week": [3, 4, 5, 6, 7, 9, 10, 11, 12, 13],
+                "weekday": "THU",
+                "courseTime": { "THU": ["1330", "1630"] }
+              }
+            ],
+            "LEC": [
+              {
+                "location": "LT28",
+                "group": "LE",
+                "week": [1, 2],
+                "weekday": "THU",
+                "courseTime": { "THU": ["1330", "1630"] }
+              }
+            ]
+          },
+          "type": ["PRJ", "LEC"]
+        }
+      }
+    }
+  },
+  "file": "66iazlsepdn"
+}
