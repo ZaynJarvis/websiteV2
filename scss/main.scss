@@ -169,6 +169,7 @@ form,
   background: rgba(lighten($primary-color, 10), 0.6);
 }
 #user-input {
+  border: none;
   height: 90%;
   width: 100%;
   padding: 2rem 10px;
