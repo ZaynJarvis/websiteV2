@@ -43,7 +43,7 @@ export default class Main extends Component {
             <Route path="/project" component={Project} />
             <Route path="/contact" component={Contact} />
             <Route path="/calendar" component={Calendar} />
-            {/* <Route component={PageNotFound} /> */}
+            <Route component={PageNotFound} />
           </Switch>
         </main>
       </Router>

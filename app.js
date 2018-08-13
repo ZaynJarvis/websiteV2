@@ -1,25 +1,28 @@
 const express = require("express"),
-  bodyParser = require("body-parser"),
-  app = express().use(bodyParser.json());
-const https = require("https");
-const http = require("http");
-const JSONtoCourseMiddleWare = require("./icsHelper");
-const fs = require("fs");
-const cors = require("cors");
+      bodyParser = require("body-parser"),
+      app = express().use(bodyParser.json()),
+      const http = require("http"),
+      https = require("https"),
+      fs = require("fs"),
+      cors = require("cors"),
+      path = require("path");
 
-const path = require("path");
-app.use(cors());
-
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+// HTTPS setup
 const options = {
   key: fs.readFileSync("../cert/zaynjarvis.com.key"),
   cert: fs.readFileSync("../cert/zaynjarvis_com.crt"),
   ca: fs.readFileSync("../cert/zaynjarvis_com.ca-bundle")
 };
 
-https.createServer(options, app).listen(443);
+// Middleware
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "build")));
+
+
+// Port setup
+https.createServer(options, app).listen(443);
 // Redirect from http port 80 to https
 http
   .createServer(function(req, res) {
@@ -30,35 +33,7 @@ http
   })
   .listen(80);
 
-app.post("/store", (req, res) => {
-  const content = req.body.content;
-  const fileName = req.body.file;
-  JSONtoCourseMiddleWare(content, fileName);
-  res.json({ file: `${fileName}.ics` });
-});
-
-app.get("/test", (req, res) => {
-  res.send("test");
-});
-
-app.get("/download", (req, res) => {
-  const file = req.query.file;
-  const fileLocation = path.join(__dirname, "file", file);
-  res.download(fileLocation, "Schedule.ics");
-});
-
+// Routing
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/build/index.html");
-});
-app.get("/about", (req, res) => {
-  res.sendFile(__dirname + "/build/index.html");
-});
-app.get("/project", (req, res) => {
-  res.sendFile(__dirname + "/build/index.html");
-});
-app.get("/contact", (req, res) => {
-  res.sendFile(__dirname + "/build/index.html");
-});
-app.get("/calendar", (req, res) => {
   res.sendFile(__dirname + "/build/index.html");
 });
