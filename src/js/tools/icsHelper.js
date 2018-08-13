@@ -1,19 +1,27 @@
 const ics = require("ics");
-const fs = require("fs");
+// The ics API use UTC-8 as the only time source, hence we will use UTC time to calculate timezone.
 
-const DAYTIME = 24 * 60 * 60 * 1000;
-const OFFSET = 16 * 60 * 60 * 1000;
-const WEEKTIME = 7 * DAYTIME;
-const WEEKDAY = {
-  MON: 0,
-  TUE: 1,
-  WED: 2,
-  THU: 3,
-  FRI: 4,
-  SAT: 5,
-  SUN: 6
-};
-const semesterStart = new Date("August 13, 2018 00:00:00 GMT+08:00").getTime();
+// By calculation time offset is +8 Hours
+// Since I use UTC as standard time, hour and minutes is in Singapore timezone (UTC+8)
+// Hence, when it apply to UTC time the real time offset is -8 Hours
+// Then I import the time to ics API, which use UTC-8 as standard.
+// Hence There is a +16 Hours Offset.
+// In total it is a +8 Hours Offset.
+
+const DAYTIME = 24 * 60 * 60 * 1000,
+  OFFSET = 8 * 60 * 60 * 1000,
+  WEEKTIME = 7 * DAYTIME,
+  WEEKDAY = {
+    MON: 0,
+    TUE: 1,
+    WED: 2,
+    THU: 3,
+    FRI: 4,
+    SAT: 5,
+    SUN: 6
+  },
+  semesterStart = new Date(2018, 7, 13, 0, 0, 0, 0).getTime(); // Semester start uses UTC time
+// JS Date module use 0 as the start of month, hence, 0 stands for January.
 
 const dateCalculation = (d, T) => {
   const original = new Date(
@@ -73,7 +81,7 @@ const generateCIS = (item, courseType, targetJson) => {
   return serialEvent;
 };
 
-function JSONtoCourseMiddleWare(jsonInput, fileName) {
+function JSONtoCourseMiddleWare(jsonInput) {
   let eventArray = [];
   for (let i = 0; i < jsonInput.length; i++) {
     const item = jsonInput.courseContent[jsonInput.courseList[i]];
@@ -87,13 +95,7 @@ function JSONtoCourseMiddleWare(jsonInput, fileName) {
     }
   }
   const { error, value } = ics.createEvents(eventArray);
-  console.log(error);
-  fs.writeFile(__dirname + `/file/${fileName}.ics`, value, function(err) {
-    if (err) {
-      return console.log(err);
-    }
-    console.log("The file was saved!");
-  });
+  if (!error) return value;
 }
 
 module.exports = JSONtoCourseMiddleWare;
