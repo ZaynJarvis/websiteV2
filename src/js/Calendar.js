@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import generateJSON from "../tools/generateJSON";
-import JSONtoCourseMiddleWare from "../tools/icsHelper";
+import generateJSON from "./tools/generateJSON";
+import JSONtoCourseMiddleWare from "./tools/icsHelper";
 // external function to generate JSON file from website raw input.
 
 class Calendar extends Component {
