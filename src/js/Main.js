@@ -9,7 +9,7 @@ import {
 import Home from "./Home";
 import About from "./About";
 import Project from "./Project";
-// import PageNotFound from "./PageNotFound";
+import PageNotFound from "./PageNotFound";
 import Contact from "./Contact";
 import Calendar from "./Calendar";
 import "../css/main.css";
