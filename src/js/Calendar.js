@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import generateJSON from "./tools/generateJSON";
+import JSONtoCourseMiddleWare from "./tools/icsHelper";
 // external function to generate JSON file from website raw input.
 
 class Calendar extends Component {
@@ -10,29 +11,23 @@ class Calendar extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
+
+  download(content, fileName, contentType) {
+    var a = document.createElement("a");
+    var file = new Blob([content], { type: contentType });
+    a.href = URL.createObjectURL(file);
+    a.download = fileName;
+    a.click();
+  }
+
   handleSubmit(event) {
     event.preventDefault();
-    const fileName = Math.random()
-      .toString(36)
-      .substring(2);
     // get the data, transfer to result
-    const result = generateJSON(this.state.value);
+    const jsonFormatedInfo = generateJSON(this.state.value);
     // send the result to the server
-    fetch("https://zaynjarvis.com/store", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json; charset=utf-8"
-      },
-      body: JSON.stringify({ content: result, file: fileName })
-    })
-      .then(function(res) {
-        res.json().then(body => {
-          window.open("https://zaynjarvis.com/download?file=" + body.file);
-        });
-      })
-      .catch(function(error) {
-        console.log("Request failure: ", error);
-      });
+    const courseResult = JSONtoCourseMiddleWare(jsonFormatedInfo);
+
+    this.download(courseResult, "Schedule.ics", "text/plain");
   }
 
   handleChange(event) {
