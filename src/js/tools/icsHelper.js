@@ -3,13 +3,14 @@ const ics = require("ics");
 
 // By calculation time offset is +8 Hours
 // Since I use UTC as standard time, hour and minutes is in Singapore timezone (UTC+8)
+// Since frontend JS is browser specific.
 // Hence, when it apply to UTC time the real time offset is -8 Hours
 // Then I import the time to ics API, which use UTC-8 as standard.
-// Hence There is a +16 Hours Offset.
-// In total it is a +8 Hours Offset.
+// Hence There is a -8 Hours Offset.
+// In total it is a +0 Hours Offset.
 
 const DAYTIME = 24 * 60 * 60 * 1000,
-  OFFSET = 8 * 60 * 60 * 1000,
+  OFFSET = 0, 
   WEEKTIME = 7 * DAYTIME,
   WEEKDAY = {
     MON: 0,
