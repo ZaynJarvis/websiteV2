@@ -8,7 +8,7 @@
     "axios": "^0.18.0",
     "cors": "^2.8.4",
     "dns": "file:./src/mock/dns",
-    "ics": "^2.7.2",
+    "ics": "git+https://github.com/ZaynJarvis/ics.git",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",
