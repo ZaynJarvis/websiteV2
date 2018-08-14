@@ -57,7 +57,7 @@ class Calendar extends Component {
               <input
                 type="submit"
                 className="generate"
-                value="Testing Mode"
+                value="Click to Generate"
               />
             </form>
           </div>
