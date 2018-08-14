@@ -73,9 +73,28 @@ export default function generateJSON(input) {
         if (week.includes("-")) {
           let weekArr = [];
           week = week.split("-");
-          // push into week array.
-          for (let i = Number(week[0]); i <= Number(week[1]); i++) {
-            weekArr.push(i);
+          if (week.length === 2) {
+            // push into week array.
+            for (let i = Number(week[0]); i <= Number(week[1]); i++) {
+              weekArr.push(i);
+            }
+          } else {
+            for (
+              let i = Number(week[0]);
+              i <= Number(week[week.length - 1]);
+              i++
+            ) {
+              weekArr.push(i);
+            }
+            let deleteNum = week[1].split(",");
+            for (
+              let i = Number(deleteNum[0]) + 1;
+              i < Number(deleteNum[1]);
+              i++
+            ) {
+              const index = weekArr.indexOf(i);
+              weekArr.splice(index, 1);
+            }
           }
           // concertain recess week, if week is larger than 7 add 1.
           // So week 8 does not exist.
