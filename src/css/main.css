@@ -431,17 +431,8 @@ h1,
 h2,
 h3 {
   margin: 0;
-  font-weight: 400; }
-  h1.lg-heading, h1.md-heading, h1.sm-heading, h1.formal,
-  h2.lg-heading,
-  h2.md-heading,
-  h2.sm-heading,
-  h2.formal,
-  h3.lg-heading,
-  h3.md-heading,
-  h3.sm-heading,
-  h3.formal {
-    font-family: "Playfair Display", serif; }
+  font-weight: 400;
+  font-family: "Playfair Display", serif; }
   h1.sm-heading,
   h2.sm-heading,
   h3.sm-heading {
@@ -507,11 +498,15 @@ main {
   display: grid;
   margin-bottom: 2rem; }
   .projects .project {
-    box-shadow: 3px 3px 70px #899186;
+    box-shadow: 3px 3px 70px #a3aaa0;
+    transition: 1s;
     margin: 0.5rem;
     border-radius: 10px;
     background: #cacec9;
     overflow: hidden; }
+    .projects .project:hover {
+      box-shadow: 3px 3px 70px #899186;
+      transform: scale(1.001); }
     .projects .project h3 {
       margin-bottom: 10px;
       font-size: 1.5rem;
@@ -549,6 +544,7 @@ form,
   background: rgba(241, 242, 241, 0.6); }
 
 #user-input {
+  border: none;
   height: 90%;
   width: 100%;
   padding: 2rem 10px;
