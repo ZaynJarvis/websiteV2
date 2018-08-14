@@ -33,13 +33,7 @@ h2,
 h3 {
   margin: 0;
   font-weight: 400;
-  &.lg-heading,
-  &.md-heading,
-  &.sm-heading,
-  &.formal {
-    font-family: "Playfair Display", serif;
-  }
-
+  font-family: "Playfair Display", serif;
   &.sm-heading {
     margin-bottom: 2rem;
     padding: 0.2rem;
@@ -120,7 +114,12 @@ main {
   display: grid;
   margin-bottom: 2rem;
   .project {
-    box-shadow: 3px 3px 70px darken($primary-color, 30);
+    box-shadow: 3px 3px 70px darken($primary-color, 20);
+    transition: 1s;
+    &:hover {
+      box-shadow: 3px 3px 70px darken($primary-color, 30);
+      transform: scale(1.001);
+    }
     h3 {
       margin-bottom: 10px;
       font-size: 1.5rem;
