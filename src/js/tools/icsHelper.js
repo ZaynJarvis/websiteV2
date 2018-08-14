@@ -81,7 +81,7 @@ const generateCIS = (item, courseType, targetJson) => {
   return serialEvent;
 };
 
-function JSONtoCourseMiddleWare(jsonInput) {
+export default function JSONtoCourseMiddleWare(jsonInput) {
   let eventArray = [];
   for (let i = 0; i < jsonInput.length; i++) {
     const item = jsonInput.courseContent[jsonInput.courseList[i]];
@@ -97,5 +97,3 @@ function JSONtoCourseMiddleWare(jsonInput) {
   const { error, value } = ics.createEvents(eventArray);
   if (!error) return value;
 }
-
-module.exports = JSONtoCourseMiddleWare;
