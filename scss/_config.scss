@@ -13,15 +13,15 @@
   }
 }
 
-// $primary-color: rgb(78, 74, 74);
-$primary-color: rgb(215, 218, 214);
+$primary-color: rgb(78, 69, 69);
+// $primary-color: rgb(215, 218, 214);
 $highlight-color-base: #4c9092;
 $background-opacity: 0.9;
 
 $secondary-color: set-text-color($primary-color);
 $highlight-color: set-highlight-color($primary-color, $highlight-color-base);
 $show-home-image: true;
-$home-image: url("/assets/img/background.jpg");
+$home-image: url("/assets/img/bg.JPEG");
 
 $middle-size: 18rem;
 $small-size: 15rem;
