@@ -1,7 +1,7 @@
 const express = require("express"),
       bodyParser = require("body-parser"),
       app = express().use(bodyParser.json()),
-      const http = require("http"),
+      http = require("http"),
       https = require("https"),
       fs = require("fs"),
       cors = require("cors"),
