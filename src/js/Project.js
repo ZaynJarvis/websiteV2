@@ -124,6 +124,13 @@ class Project extends Component {
               allow="autoplay; encrypted-media"
               allowFullScreen="true"
             />
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/xsfMCbqQweI"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+            />
           </div>
           <div className="project project-video">
             <iframe
