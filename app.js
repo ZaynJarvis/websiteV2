@@ -7,6 +7,24 @@ const express = require("express"),
   cors = require("cors"),
   path = require("path");
 
+const mongoose = require("mongoose");
+mongoose.connect(
+  "mongodb://ZaynJarvis:Liu!1234@ds233228.mlab.com:33228/chrome"
+);
+
+const db = mongoose.connection;
+db.on("error", console.log);
+db.once("open", () => console.log("connected"));
+
+const infoSchema = mongoose.Schema({
+  title: String,
+  sub: String,
+  p: String,
+  show: Boolean
+});
+
+const Info = mongoose.model("info", infoSchema);
+
 // HTTPS setup
 const options = {
   key: fs.readFileSync("../cert/zaynjarvis.com.key"),
@@ -45,8 +63,18 @@ app.get("/api", (req, res) => {
 });
 app.post("/api", (req, res) => {
   const content = req.body;
-  console.log(content);
-  res.json({ state: `success` });
+
+  const info = new User({
+    title: content.title,
+    sub: content.sub,
+    p: content.p,
+    show: content.show
+  });
+
+  info.save((err, info) => {
+    if (err) res.json({ state: `success` });
+    else res.json({ state: `failed` });
+  });
 });
 
 // Routing

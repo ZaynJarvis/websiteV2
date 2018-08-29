@@ -8,6 +8,8 @@
     "cors": "^2.8.4",
     "dns": "file:./src/mock/dns",
     "ics": "git+https://github.com/ZaynJarvis/ics.git",
+    "mongodb": "^3.1.4",
+    "mongoose": "^5.2.10",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",
