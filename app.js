@@ -49,16 +49,16 @@ app.get("/api", (req, res) => {
 
 app.post("/api", (req, res) => {
   const content = req.body;
-
   const info = new Info({
     title: content.title,
     sub: content.sub,
     p: content.p,
-    show: content.show
+    show: content.show,
+    date: new Date().getTime() 
   });
-
+  console.log(info);
   info.save((err, info) => {
-    if (err) res.json({ state: `failed` });
+    if (err) res.json({ state: err });
     else res.json({ state: `successed` });
   });
 });

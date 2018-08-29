@@ -11,7 +11,8 @@ const infoSchema = mongoose.Schema({
   title: String,
   sub: String,
   p: String,
-  show: Boolean
+  show: Boolean,
+  date: Number 
 });
 
-module.exports = mongoose.model("info", infoSchema);
+module.exports = mongoose.model("infos", infoSchema);
