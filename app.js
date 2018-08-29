@@ -37,7 +37,7 @@ app.get("/api", (req, res) => {
   res.send(
     JSON.stringify({
       title: "Notification",
-      h2: "Thanks for using NTULearn Tweak",
+      sub: "Thanks for using NTULearn Tweak",
       p: "The newest version now is 1.4.1",
       show: false
     })
