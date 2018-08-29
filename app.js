@@ -58,8 +58,8 @@ app.post("/api", (req, res) => {
   });
 
   info.save((err, info) => {
-    if (err) res.json({ state: `success` });
-    else res.json({ state: `failed` });
+    if (err) res.json({ state: `failed` });
+    else res.json({ state: `successed` });
   });
 });
 
