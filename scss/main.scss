@@ -11,7 +11,8 @@ body {
   @include background;
   color: $secondary-color;
   height: 100vh;
-  font-family: "Fira Sans", Tahoma;
+  font-family: "Roboto", Tahoma;
+  font-weight: lighter;
   line-height: 1.5;
   display: grid;
   align-items: center;
