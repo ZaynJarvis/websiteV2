@@ -35,7 +35,7 @@ http
 
 app.get("/api", (req, res) => {
   res.setHeader("Content-Type", "application/json");
-  Info.findOne({}, {}, { sort: { created_at: -1 } }, function(err, result) {
+  Info.findOne({}, {}, { sort: { created_at: 1 } }, function(err, result) {
     res.send(
       JSON.stringify({
         title: result.title,
