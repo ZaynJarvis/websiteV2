@@ -14,4 +14,4 @@ const infoSchema = mongoose.Schema({
   show: Boolean
 });
 
-export default mongoose.model("info", infoSchema);
+module.exports = mongoose.model("info", infoSchema);
