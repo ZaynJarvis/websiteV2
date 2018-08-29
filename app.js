@@ -33,7 +33,15 @@ http
   .listen(80);
 
 app.get("/api", (req, res) => {
-  res.send("/build/index.html");
+  res.setHeader("Content-Type", "application/json");
+  res.send(
+    JSON.stringify({
+      title: "Notification",
+      h2: "Thanks for using NTULearn Tweak",
+      p: "The newest version now is 1.4.1",
+      show: false
+    })
+  );
 });
 
 // Routing
