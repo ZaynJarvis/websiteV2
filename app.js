@@ -6,24 +6,7 @@ const express = require("express"),
   fs = require("fs"),
   cors = require("cors"),
   path = require("path");
-
-const mongoose = require("mongoose");
-mongoose.connect(
-  "mongodb://ZaynJarvis:Liu!1234@ds233228.mlab.com:33228/chrome"
-);
-
-const db = mongoose.connection;
-db.on("error", console.log);
-db.once("open", () => console.log("connected"));
-
-const infoSchema = mongoose.Schema({
-  title: String,
-  sub: String,
-  p: String,
-  show: Boolean
-});
-
-const Info = mongoose.model("info", infoSchema);
+const Info = require("./mongo");
 
 // HTTPS setup
 const options = {
@@ -52,19 +35,22 @@ http
 
 app.get("/api", (req, res) => {
   res.setHeader("Content-Type", "application/json");
-  res.send(
-    JSON.stringify({
-      title: "Notification",
-      sub: "Thanks for using NTULearn Tweak",
-      p: "The newest version now is 1.4.1",
-      show: false
-    })
-  );
+  Info.findOne({}, {}, { sort: { created_at: -1 } }, function(err, result) {
+    res.send(
+      JSON.stringify({
+        title: result.title,
+        sub: result.sub,
+        p: result.p,
+        show: result.show
+      })
+    );
+  });
 });
+
 app.post("/api", (req, res) => {
   const content = req.body;
 
-  const info = new User({
+  const info = new Info({
     title: content.title,
     sub: content.sub,
     p: content.p,
