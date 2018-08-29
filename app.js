@@ -43,6 +43,11 @@ app.get("/api", (req, res) => {
     })
   );
 });
+app.post("/api", (req, res) => {
+  const content = req.body;
+  console.log(content);
+  res.json({ state: `success` });
+});
 
 // Routing
 app.get("*", (req, res) => {
