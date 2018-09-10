@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, "build")));
 https.createServer(options, app).listen(443);
 // Redirect from http port 80 to https
 http
-  .createServer(function(req, res) {
+  .createServer(function (req, res) {
     res.writeHead(301, {
       Location: "https://" + req.headers["host"] + req.url
     });
@@ -33,9 +33,8 @@ http
   })
   .listen(80);
 
-app.get("/api", (req, res) => {
-  res.setHeader("Content-Type", "application/json");
-  Info.findOne({}, {}, { sort: { created_at: 1 } }, function(err, result) {
+function respond(err, result, res) {
+  if (result)
     res.send(
       JSON.stringify({
         title: result.title,
@@ -44,17 +43,30 @@ app.get("/api", (req, res) => {
         show: result.show
       })
     );
-  });
+  else
+    res.send({});
+}
+app.get("/api", (req, res) => {
+  res.setHeader("Content-Type", "application/json");
+  console.log(req.query);
+  if (req.query.school !== undefined)
+    Info.findOne({ school: req.query.school }, {}, { sort: { created_at: 1 } }, (e, v) => respond(e, v, res));
+  else if (req.query.name !== undefined)
+    Info.findOne({ name: req.query.name }, {}, { sort: { created_at: 1 } }, (e, v) => respond(e, v, res));
+  else
+    Info.findOne({ school: "all" }, {}, { sort: { created_at: 1 } }, (e, v) => respond(e, v, res));
 });
 
 app.post("/api", (req, res) => {
   const content = req.body;
   const info = new Info({
+    school: content.school,
+    name: content.name,
     title: content.title,
     sub: content.sub,
     p: content.p,
     show: content.show,
-    date: new Date().getTime() 
+    date: new Date().getTime()
   });
   console.log(info);
   info.save((err, info) => {
