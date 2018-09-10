@@ -48,7 +48,10 @@ function respond(err, result, res) {
 }
 app.get("/api", (req, res) => {
   res.setHeader("Content-Type", "application/json");
-  Info.findOne(req.query, {}, { sort: { date: -1 } }, (e, v) => respond(e, v, res));
+  if (req.query)
+    Info.findOne(req.query, {}, { sort: { date: -1 } }, (e, v) => respond(e, v, res));
+  else
+    Info.findOne({ school: "all" }, {}, { sort: { date: -1 } }, (e, v) => respond(e, v, res));
 });
 
 app.post("/api", (req, res) => {
