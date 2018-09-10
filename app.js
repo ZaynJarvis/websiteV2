@@ -50,11 +50,11 @@ app.get("/api", (req, res) => {
   res.setHeader("Content-Type", "application/json");
   console.log(req.query);
   if (req.query.school !== undefined)
-    Info.findOne({ school: req.query.school }, {}, { sort: { created_at: 1 } }, (e, v) => respond(e, v, res));
+    Info.findOne({ school: req.query.school }, {}, { sort: { date: -1 } }, (e, v) => respond(e, v, res));
   else if (req.query.name !== undefined)
-    Info.findOne({ name: req.query.name }, {}, { sort: { created_at: 1 } }, (e, v) => respond(e, v, res));
+    Info.findOne({ name: req.query.name }, {}, { sort: { date: -1 } }, (e, v) => respond(e, v, res));
   else
-    Info.findOne({ school: "all" }, {}, { sort: { created_at: 1 } }, (e, v) => respond(e, v, res));
+    Info.findOne({ school: "all" }, {}, { sort: { date: -1 } }, (e, v) => respond(e, v, res));
 });
 
 app.post("/api", (req, res) => {
