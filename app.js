@@ -49,9 +49,9 @@ function respond(err, result, res) {
 app.get("/api", (req, res) => {
   res.setHeader("Content-Type", "application/json");
   console.log(req.query);
-  if (req.query.name !== undefined)
+  if (req.query.name !== "")
     Info.findOne({ name: req.query.name }, {}, { sort: { date: -1 } }, (e, v) => respond(e, v, res));
-  else if (req.query.school !== undefined)
+  else if (req.query.school !== "")
     Info.findOne({ school: req.query.school }, {}, { sort: { date: -1 } }, (e, v) => respond(e, v, res));
   else
     Info.findOne({ school: "all" }, {}, { sort: { date: -1 } }, (e, v) => respond(e, v, res));
