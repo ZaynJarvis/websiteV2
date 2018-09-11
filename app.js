@@ -57,7 +57,7 @@ app.get("/api", (req, res) => {
     })
     User.findOne(req.query, {}, { sort: { date: -1 } }, (e, v) => {
       if (!v) {
-        user.save(() => { res.json({ status: 'success' }) });
+        user.save((e,v) => { console.log(e) }) });
       }
     });
 
