@@ -54,11 +54,24 @@ app.get("/api", (req, res) => {
     Info.findOne(req.query, {}, { sort: { date: -1 } }, (e, v) => respond(e, v, res));
     const user = new User({
       school: req.query.school,
-      name: req.query.name
+      name: req.query.name,
+      count: 0
     })
     User.findOne(req.query, {}, { sort: { date: -1 } }, (e, v) => {
       if (!v) {
-        user.save((e,v) => { console.log(e) } );
+        user.save((e, v) => { console.log(e) });
+      }
+      else {
+        v.count += 1;
+        fetch('https://api.mlab.com/api/1/databases/chrome/collections/users?apiKey=awWz2y7VL9sR6uXaXs_CRsAhG-9AXkNo', {
+          method: 'PUT',
+          body: JSON.stringify(v),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }).then(res => res.json())
+          .then(response => console.log('Success:', JSON.stringify(response)))
+          .catch(error => console.error('Error:', error));
       }
     });
 

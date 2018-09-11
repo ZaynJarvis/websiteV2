@@ -20,7 +20,8 @@ const infoSchema = mongoose.Schema({
 
 const userSchema = mongoose.Schema({
   school: String,
-  name: String
+  name: String,
+  count: Number
 });
 
 module.exports = { Info: mongoose.model("infos", infoSchema), User: mongoose.model("users", userSchema) };
