@@ -48,8 +48,10 @@ function respond(err, result, res) {
 }
 app.get("/api", (req, res) => {
   res.setHeader("Content-Type", "application/json");
-  if (req.query)
+  if (req.query.name !== undefined)
     Info.findOne(req.query, {}, { sort: { date: -1 } }, (e, v) => respond(e, v, res));
+  else if (req.query)
+    Info.findOne({ school: req.query.school, name: "" }, {}, { sort: { date: -1 } }, (e, v) => respond(e, v, res));
   else
     Info.findOne({ school: "all" }, {}, { sort: { date: -1 } }, (e, v) => respond(e, v, res));
 });
