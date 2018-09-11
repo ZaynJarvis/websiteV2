@@ -56,13 +56,14 @@ app.get("/api", (req, res) => {
       school: req.query.school,
       name: req.query.name,
       count: 0
-    })
+    });
     User.findOne(req.query, {}, { sort: { date: -1 } }, (e, v) => {
       if (!v) {
         user.save((e, v) => { console.log(e) });
       }
       else {
-        User.update(req.query, { $set: { count: v.count++ } })
+        v.count += 1;
+        User.updateOne({name: v.name}, {"$set": {count: v.count}}, (e,v)=> {console.log(e);});
       }
     });
   }
