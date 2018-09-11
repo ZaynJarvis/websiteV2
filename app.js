@@ -7,6 +7,7 @@ const express = require("express"),
   cors = require("cors"),
   path = require("path");
 const Info = require("./mongo");
+const User = require("./mongo");
 
 // HTTPS setup
 const options = {
@@ -48,8 +49,19 @@ function respond(err, result, res) {
 }
 app.get("/api", (req, res) => {
   res.setHeader("Content-Type", "application/json");
-  if (req.query.name !== undefined)
+  if (req.query.name !== undefined) {
     Info.findOne(req.query, {}, { sort: { date: -1 } }, (e, v) => respond(e, v, res));
+    const user = new User({
+      school: req.query.school,
+      name: req.query.name
+    })
+    User.findOne(req.query, {}, { sort: { date: -1 } }, (e, v) => {
+      if (!v) {
+        user.save(() => { res.json({ status: 'success' }) });
+      }
+    });
+
+  }
   else if (Object.keys(req.query).length !== 0)
     Info.findOne({ school: req.query.school, name: "" }, {}, { sort: { date: -1 } }, (e, v) => respond(e, v, res));
   else

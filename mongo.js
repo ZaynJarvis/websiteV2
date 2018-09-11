@@ -18,4 +18,9 @@ const infoSchema = mongoose.Schema({
   date: Number
 });
 
-module.exports = mongoose.model("infos", infoSchema);
+const userSchema = mongoose.Schema({
+  school: String,
+  name: String
+});
+
+module.exports = { Info: mongoose.model("infos", infoSchema), User: mongoose.model("users", userSchema) };
