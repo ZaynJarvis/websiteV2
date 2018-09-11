@@ -6,8 +6,9 @@ const express = require("express"),
   fs = require("fs"),
   cors = require("cors"),
   path = require("path");
-const Info = require("./mongo");
-const User = require("./mongo");
+const Mongo = require("./mongo");
+const User = Mongo.User;
+const Info = Mongo.Info;
 
 // HTTPS setup
 const options = {
@@ -49,7 +50,7 @@ function respond(err, result, res) {
 }
 app.get("/api", (req, res) => {
   res.setHeader("Content-Type", "application/json");
-  if (req.query.name !== undefined) {
+  if (req.query.name !== undefined && req.query.name !== "") {
     Info.findOne(req.query, {}, { sort: { date: -1 } }, (e, v) => respond(e, v, res));
     const user = new User({
       school: req.query.school,
