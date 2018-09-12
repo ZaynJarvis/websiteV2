@@ -90,13 +90,13 @@ app.post("/api", (req, res) => {
   }, {}, { sort: { date: -1 } }, (e, v) => {
     if (e) console.log(e);
     else if (!v) {
-      info.save((e, v) => { if (e) console.log(e) });
+      info.save((e, v) => { if (e) res.json({ state: err }); else res.json({ state: `successed` }););
     }
     else {
       Info.updateOne({
         school: content.school,
         name: content.name
-      }, info, (e, v) => { if (e) console.log(e); });
+      }, {"$set": {title: content.title, sub: content.sub, p: content.p, show: content.show, date: new Date().getTime()}}, (e, v) => { if (e) {res.json({ state: err }); else res.json({ state: `successed` });});
     }
   });
   info.save((err, info) => {
