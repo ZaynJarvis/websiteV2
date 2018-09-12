@@ -63,7 +63,7 @@ app.get("/api", (req, res) => {
       }
       else {
         v.count += 1;
-        User.updateOne({name: v.name}, {"$set": {count: v.count}}, (e,v)=> {console.log(e);});
+        User.updateOne({ name: v.name }, { "$set": { count: v.count } }, (e, v) => { console.log(e); });
       }
     });
   }
@@ -84,7 +84,21 @@ app.post("/api", (req, res) => {
     show: content.show,
     date: new Date().getTime()
   });
-  console.log(info);
+  Info.findOne({
+    school: content.school,
+    name: content.name
+  }, {}, { sort: { date: -1 } }, (e, v) => {
+    if (e) console.log(e);
+    else if (!v) {
+      info.save((e, v) => { if (e) console.log(e) });
+    }
+    else {
+      Info.updateOne({
+        school: content.school,
+        name: content.name
+      }, info, (e, v) => { if (e) console.log(e); });
+    }
+  });
   info.save((err, info) => {
     if (err) res.json({ state: err });
     else res.json({ state: `successed` });
