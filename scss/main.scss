@@ -116,7 +116,7 @@ main {
   margin-bottom: 2rem;
   .project {
     box-shadow: 3px 3px 70px darken($primary-color, 20);
-    transition: 1s;
+    transition: 0.4s;
     &:hover {
       box-shadow: 3px 3px 70px darken($primary-color, 30);
       transform: scale(1.001);
