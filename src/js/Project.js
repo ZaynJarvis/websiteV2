@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 class Project extends Component {
-  render() {
+  render () {
     return (
       <div id="project" className="content">
         <h1 className="lg-heading">
@@ -144,7 +144,7 @@ class Project extends Component {
           <div className="project project-video">
             <iframe
               title="youtube video"
-              src="https://www.youtube.com/embed/7GoWAgnXQq0?rel=0&amp;showinfo=0"
+              src="https://www.youtube.com/embed/WHGb2NOMiQ0?rel=0&amp;showinfo=0"
               frameBorder="0"
               allow="autoplay; encrypted-media"
               allowFullScreen="true"

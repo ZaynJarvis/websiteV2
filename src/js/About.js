@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 class About extends Component {
-  render() {
+  render () {
     return (
       <div id="about" className="content">
         <h1 className="lg-heading">
@@ -36,7 +36,7 @@ class About extends Component {
             <div className="project project-text">
               <h3>Software Engineer</h3>
               <p>
-                I am a Software Engineer for a start-up company, SDI Academy. My
+                I am a Software Engineer once worked for a start-up company, SDI Academy. My
                 focus is mobile APP development. I use Flutter framework to
                 create a cross-platform mobile APP, Dr. English. Our team has
                 won the "Singtel Future Maker" competition, and have a
@@ -47,9 +47,17 @@ class About extends Component {
             <div className="project project-text">
               <h3>Tech Director</h3>
               <p>
-                I am a Tech Director of NTUOSS (NTU Open Source Society). My
+                I am a Tech Director of <a alt="NTUOSS Website" href="https://www.ntuoss.com">NTUOSS (NTU Open Source Society)</a>. My
                 specialty is in teaching mobile APP and web programming. I enjoy
                 teaching while learning.
+              </p>
+            </div>
+
+            <div className="project project-text">
+              <h3>Founding Committee</h3>
+              <p>
+                I am one of the founding committee, technical consultant, of Xperience of EEE, which is a escape room society, aiming at combining game and technology together.
+                We are integrating education and technical projects with complete real world or platform based gaming systems.
               </p>
             </div>
 
