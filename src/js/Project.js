@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 class Project extends Component {
-  render () {
+  render() {
     return (
       <div id="project" className="content">
         <h1 className="lg-heading">
@@ -28,15 +28,16 @@ class Project extends Component {
             <p>
               I self-learned Python since course materials are not enough, and
               led a team of six for a Telegram Bot project. The chatbot is an
-              integrated data management system for student associations. My
-              Github repo includes the complete source code and documentation
+              integrated data management system for student associations. The
+              project is a prototype for the school event management platform
+              [WIP] Tribe.
             </p>
           </div>
           <div className="project project-text">
             <h3>Front-End Development</h3>
             <span className="icon">
               <a
-                href="https://github.com/ZaynJarvis/ZaynJarvis.github.io"
+                href="https://zaynjarvis.github.io/VanillaCalendar/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -51,10 +52,10 @@ class Project extends Component {
             </p>
           </div>
           <div className="project project-text">
-            <h3>Schedule Generator</h3>
+            <h3>NTUVibe</h3>
             <span className="icon">
               <a
-                href="https://github.com/ZaynJarvis/websiteV2"
+                href="https://ntuvibe.com"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -62,19 +63,18 @@ class Project extends Component {
               </a>
             </span>
             <p>
-              I realize forcing users to log in to a website may not be
-              convenient enough to view their website, hence, I decide to
-              generate a .ics format file to help users get their own calendar
-              on their own devices. This project benefits a lot of NTU
-              undergraduates and will be implemented in NTUvibe website to
-              reveal its identity.
+              NTUVibe is a course review and discussion platform for NTU
+              students. I took part in this student initiated project and design
+              a program to generate the .ics file to help users import their
+              calendar on their mobile devices. This project benefits a lot of
+              NTU undergraduates.
             </p>
           </div>
           <div className="project project-text">
             <h3>NTUlearn Tweak</h3>
             <span className="icon">
               <a
-                href="https://github.com/ZaynJarvis/NTUlearn-Tweak"
+                href="https://www.youtube.com/playlist?list=PLauyMbJD3fIl5-Mbh9bRaHJ1UzFAUv0E5"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -82,14 +82,15 @@ class Project extends Component {
               </a>
             </span>
             <p>
-              I am not satisfied with our course website design, so I create a
-              Chrome Extension to change its styling. I upload the showcase,
-              instruction, and tutorials about Chrome Extensions. Hopefully,
-              lots of NTU undergrads will benefit from this little project.
+              This self-initiated open source project is to redesign the course
+              website of NTU. I create a Chrome Extension to change NTULearn's
+              user interface and upload the showcase and tutorials for using
+              Chrome Extensions. Hopefully, lots of NTU undergrads will benefit
+              from this project.
             </p>
           </div>
           <div className="project project-text">
-            <h3>Back-End Development</h3>
+            <h3>FYP Consultant</h3>
             <span className="icon">
               <a
                 href="https://github.com/SDIAcademy/backend"
@@ -100,22 +101,34 @@ class Project extends Component {
               </a>
             </span>
             <p>
-              I created a mobile APP prototype, Dr. English, in which projects I
-              coordinate with NodeJS, ExpressJS, Android Speech Recognition
-              Docker, Kubernetes, and Firebase.
+              I am working with NTU EEE undergraduates office on an automated
+              course planning platform. The outcome of the project will ease the
+              work load for EEE stuff, and have potential commercial value to
+              sale to other school and university. This project is a FYP project
+              of Ding Jin. I am assigned to be her consultant for the entire
+              project under EEE supervision.
             </p>
           </div>
 
           <div className="project project-text">
-            <h3>Processing &amp; p5.js</h3>
+            <h3>One-NTU</h3>
+            <span className="icon">
+              <a
+                href="https://github.com/ZaynJarvis/NTU-Shuttle-Bus"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className="fab fa-github fa-2x" />
+              </a>
+            </span>
             <p>
-              I started learning Processing by watching Mr. Shiffman’s youtube
-              tutorials. Rather than animation by CSS and Animate.js, p5.js
-              gives the freedom to generate visual art, animation, and
-              interaction.
+              I work with NTU-CITS (center of information and technology center)
+              and NTUSU (student union) on a mobile app project for the on-going
+              smart campus project initiated by NTU. We are to create a mobile
+              app for real time bus location, student feedback collection
+              platform, and more.
             </p>
           </div>
-
           <div className="project project-video">
             <iframe
               title="youtube video"
@@ -155,7 +168,8 @@ class Project extends Component {
             <p>
               I bought a domain name, SSL certificate and created my server on
               DigitalOcean, and learned Linux command line, Git, Github, SSH,
-              VPN, and became the software trainer of Garage@EEE and NTUOSS.
+              VPN, and became the software trainer of Garage@EEE, Xperience@EEE
+              and NTUOSS.
             </p>
           </div>
         </div>
