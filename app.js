@@ -110,10 +110,6 @@ app.post("/api", (req, res) => {
         });
     }
   });
-  info.save((err, info) => {
-    if (err) res.json({ state: err });
-    else res.json({ state: `successed` });
-  });
 });
 
 // Routing
