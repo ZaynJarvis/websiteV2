@@ -12,9 +12,9 @@ const Info = Mongo.Info;
 
 // HTTPS setup
 const options = {
-  key: fs.readFileSync("../cert/zaynjarvis.com.key"),
-  cert: fs.readFileSync("../cert/zaynjarvis_com.crt"),
-  ca: fs.readFileSync("../cert/zaynjarvis_com.ca-bundle")
+  key: fs.readFileSync("./cert/zaynjarvis.com.key"),
+  cert: fs.readFileSync("./cert/zaynjarvis_com.crt"),
+  ca: fs.readFileSync("./cert/zaynjarvis_com.ca-bundle")
 };
 
 // Middleware
@@ -23,17 +23,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "build")));
 
-// Port setup
-https.createServer(options, app).listen(443);
-// Redirect from http port 80 to https
-http
-  .createServer(function (req, res) {
-    res.writeHead(301, {
-      Location: "https://" + req.headers["host"] + req.url
-    });
-    res.end();
-  })
-  .listen(80);
+// // Port setup
+// https.createServer(options, app).listen(443);
+// // Redirect from http port 80 to https
+// http
+//   .createServer(function(req, res) {
+//     res.writeHead(301, {
+//       Location: "https://" + req.headers["host"] + req.url
+//     });
+//     res.end();
+//   })
+//   .listen(80);
 
 function respond(err, result, res) {
   if (result)
@@ -45,13 +45,14 @@ function respond(err, result, res) {
         show: result.show
       })
     );
-  else
-    res.send({});
+  else res.send({});
 }
 app.get("/api", (req, res) => {
   res.setHeader("Content-Type", "application/json");
   if (req.query.name !== undefined && req.query.name !== "") {
-    Info.findOne(req.query, {}, { sort: { date: -1 } }, (e, v) => respond(e, v, res));
+    Info.findOne(req.query, {}, { sort: { date: -1 } }, (e, v) =>
+      respond(e, v, res)
+    );
     const user = new User({
       school: req.query.school,
       name: req.query.name,
@@ -59,18 +60,31 @@ app.get("/api", (req, res) => {
     });
     User.findOne(req.query, {}, { sort: { date: -1 } }, (e, v) => {
       if (!v) {
-        user.save((e, v) => { console.log(e) });
-      }
-      else {
+        user.save((e, v) => {
+          console.log(e);
+        });
+      } else {
         v.count += 1;
-        User.updateOne({ name: v.name }, { "$set": { count: v.count } }, (e, v) => { console.log(e); });
+        User.updateOne(
+          { name: v.name },
+          { $set: { count: v.count } },
+          (e, v) => {
+            console.log(e);
+          }
+        );
       }
     });
-  }
-  else if (Object.keys(req.query).length !== 0)
-    Info.findOne({ school: req.query.school, name: "" }, {}, { sort: { date: -1 } }, (e, v) => respond(e, v, res));
+  } else if (Object.keys(req.query).length !== 0)
+    Info.findOne(
+      { school: req.query.school, name: "" },
+      {},
+      { sort: { date: -1 } },
+      (e, v) => respond(e, v, res)
+    );
   else
-    Info.findOne({ school: "all" }, {}, { sort: { date: -1 } }, (e, v) => respond(e, v, res));
+    Info.findOne({ school: "all" }, {}, { sort: { date: -1 } }, (e, v) =>
+      respond(e, v, res)
+    );
 });
 
 app.post("/api", (req, res) => {
@@ -84,35 +98,48 @@ app.post("/api", (req, res) => {
     show: content.show,
     date: new Date().getTime()
   });
-  Info.findOne({
-    school: content.school,
-    name: content.name
-  }, {}, { sort: { date: -1 } }, (e, v) => {
-    if (e) console.log(e);
-    else if (!v) {
-      info.save((e, v) => {
-        if (e)
-          res.json({ state: err });
-        else
-          res.json({ state: `successed` });
-      });
-    }
-    else {
-      Info.updateOne({
-        school: content.school,
-        name: content.name
-      }, { "$set": { title: content.title, sub: content.sub, p: content.p, show: content.show, date: new Date().getTime() } },
-        (e, v) => {
-          if (e)
-            res.json({ state: err });
-          else
-            res.json({ state: `successed` });
+  Info.findOne(
+    {
+      school: content.school,
+      name: content.name
+    },
+    {},
+    { sort: { date: -1 } },
+    (e, v) => {
+      if (e) console.log(e);
+      else if (!v) {
+        info.save((e, v) => {
+          if (e) res.json({ state: err });
+          else res.json({ state: `successed` });
         });
+      } else {
+        Info.updateOne(
+          {
+            school: content.school,
+            name: content.name
+          },
+          {
+            $set: {
+              title: content.title,
+              sub: content.sub,
+              p: content.p,
+              show: content.show,
+              date: new Date().getTime()
+            }
+          },
+          (e, v) => {
+            if (e) res.json({ state: err });
+            else res.json({ state: `successed` });
+          }
+        );
+      }
     }
-  });
+  );
 });
 
 // Routing
 app.get("*", (req, res) => {
   res.sendFile(__dirname + "/build/index.html");
 });
+
+app.listen(8080);
