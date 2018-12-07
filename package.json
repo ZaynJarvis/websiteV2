@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "@typeform/embed": "^0.5.12",
+    "cheerio": "^1.0.0-rc.2",
     "cors": "^2.8.4",
     "dns": "./src/mock/dns",
     "mongodb": "^3.1.4",
@@ -14,7 +15,9 @@
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
   },
   "scripts": {
     "start": "react-scripts start",
