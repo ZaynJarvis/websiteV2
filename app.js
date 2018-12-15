@@ -1,20 +1,19 @@
 const express = require("express"),
   bodyParser = require("body-parser"),
   app = express().use(bodyParser.json()),
-  http = require("http"),
-  https = require("https"),
   fs = require("fs"),
   cors = require("cors"),
-  path = require("path");
-const Mongo = require("./mongo");
-const User = Mongo.User;
-const Info = Mongo.Info;
-const rp = require("request-promise");
-const $ = require("cheerio");
+  path = require("path"),
+  Mongo = require("./mongo"),
+  User = Mongo.User,
+  Info = Mongo.Info,
+  rp = require("request-promise"),
+  $ = require("cheerio");
 
 app.get("/version/:name", async (req, res) => {
-  const html = await rp(`https://img.shields.io/pub/v/${req.params.name}.svg`);
-  res.send(html);
+  const svg = await rp(`https://img.shields.io/pub/v/${req.params.name}.svg`);
+  res.writeHead(200, { "content-type": "image/svg+xml" });
+  res.end(svg);
 });
 
 app.get("/score/:name", async (req, res) => {
@@ -24,34 +23,16 @@ app.get("/score/:name", async (req, res) => {
     const badge = await rp(
       `https://img.shields.io/badge/pub.score-${$(this).text()}-blue.svg`
     );
-    res.send(badge);
+    res.writeHead(200, { "content-type": "image/svg+xml" });
+    res.end(badge);
   });
 });
-
-// HTTPS setup
-const options = {
-  key: fs.readFileSync("./cert/zaynjarvis.com.key"),
-  cert: fs.readFileSync("./cert/zaynjarvis_com.crt"),
-  ca: fs.readFileSync("./cert/zaynjarvis_com.ca-bundle")
-};
 
 // Middleware
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "build")));
-
-// // Port setup
-// https.createServer(options, app).listen(443);
-// // Redirect from http port 80 to https
-// http
-//   .createServer(function(req, res) {
-//     res.writeHead(301, {
-//       Location: "https://" + req.headers["host"] + req.url
-//     });
-//     res.end();
-//   })
-//   .listen(80);
 
 function respond(err, result, res) {
   if (result)
@@ -160,4 +141,4 @@ app.get("*", (req, res) => {
   res.sendFile(__dirname + "/build/index.html");
 });
 
-app.listen(8080);
+app.listen(80);
