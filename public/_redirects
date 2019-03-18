@@ -1,3 +1,2 @@
-https://zaynjarvis.com/* https://www.zaynjarvis.com/:splat 301!
 # Redirect default Netlify subdomain to primary domain
 https://suspicious-neumann-83ffdd.netlify.com/* https://www.zaynjarvis.com/:splat 301!
